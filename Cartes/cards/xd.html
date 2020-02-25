@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    article{
+      display: flex;
+    }
+    img{
+      width :100px;
+    }
+  </style>
+</head>
+<body>
+  <h1>HOLA</h1>
+  <article>
+    <img src="" alt="Carta" style="rigth: 400px;">
+    <img src="" alt="Carta" style="rigth: 400px;">
+    <img src="" alt="Carta" style="rigth: 400px;">
+    <img src="" alt="Carta" style="rigth: 400px;">
+    <img src="" alt="Carta" style="rigth: 400px;">
+    <img src="" alt="Carta" style="rigth: 400px;">
+    <img src="" alt="Carta" style="rigth: 400px;">
+    <img src="" alt="Carta" style="rigth: 400px;">
+    <img src="" alt="Carta" style="rigth: 400px;">
+    <img src="" alt="Carta" style="rigth: 400px;">
+    <img src="" alt="Carta" style="rigth: 400px;">
+    <img src="" alt="Carta" style="rigth: 400px;">
+
+  </article>
+<script>
+
+const cartas = [];
+function funcion(i){
+
+  let palo = Math.floor(Math.random() * 4);
+  let numero = Math.floor(Math.random() * 14);
+
+  
+  switch(palo){
+    case 0: palo = "clubs.png";break;
+    case 1: palo = "diamonds.png";break;
+    case 2: palo = "hearts.png";break;
+    case 3: palo = "spades.png";break;
+  }
+  switch (numero){
+    case 0: numero = "ace_of_";break;
+    case 10: numero = "jack_of_";break;
+    case 11: numero = "king_of_";break;
+    case 12: numero = "king_of_"; break;
+    case 13: numero = "king_of_";break;
+    default: numero = (numero + 1) + "_of_"; break;
+  }
+
+  console.log("A la posició " + i + " hi ha la carta " + numero + palo);
+
+let palabra = numero + palo;
+    for (let j = 1; j < cartas.length; j++){
+      if (cartas[j].string == palabra)
+        palabra = funcion(i);
+  } 
+  
+  cartas[i] = { string : palabra};
+  return palabra;
+
+}
+for (let i = 1; i<13;i++){
+document.querySelector("article img:nth-child(" + i + ")").src = funcion(i);
+}
+console.log([cartas]);
+</script>  
+</body>
+</html>
