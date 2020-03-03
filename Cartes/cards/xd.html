@@ -19,25 +19,32 @@
     <img src="" alt="Carta" style="rigth: 400px;">
     <img src="" alt="Carta" style="rigth: 400px;">
     <img src="" alt="Carta" style="rigth: 400px;">
-    <img src="" alt="Carta" style="rigth: 400px;">
-    <img src="" alt="Carta" style="rigth: 400px;">
-    <img src="" alt="Carta" style="rigth: 400px;">
-    <img src="" alt="Carta" style="rigth: 400px;">
-    <img src="" alt="Carta" style="rigth: 400px;">
-    <img src="" alt="Carta" style="rigth: 400px;">
-    <img src="" alt="Carta" style="rigth: 400px;">
-    <img src="" alt="Carta" style="rigth: 400px;">
 
   </article>
+  <button id= "pepito" >Boton de verdad</button>
 <script>
 
+
+
+
 const cartas = [];
+refresh();
+
+document.querySelector("#pepito").addEventListener('click', refresh());
+
+
+function refresh(){
+  for (let i = 1; i<13;i++){
+    document.querySelector("article img:nth-child(" + i + ")").src = funcion(i);
+  }
+}
+
+
 function funcion(i){
 
   let palo = Math.floor(Math.random() * 4);
   let numero = Math.floor(Math.random() * 14);
 
-  
   switch(palo){
     case 0: palo = "clubs.png";break;
     case 1: palo = "diamonds.png";break;
@@ -59,15 +66,13 @@ let palabra = numero + palo;
     for (let j = 1; j < cartas.length; j++){
       if (cartas[j].string == palabra)
         palabra = funcion(i);
-  } 
+  }
   
   cartas[i] = { string : palabra};
   return palabra;
 
 }
-for (let i = 1; i<13;i++){
-document.querySelector("article img:nth-child(" + i + ")").src = funcion(i);
-}
+
 console.log([cartas]);
 </script>  
 </body>
