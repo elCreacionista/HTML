@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+	<link rel="stylesheet" href="css.css">
+</head>
+<body>
+	<header>
+		<div>
+			<h1><img src = "https://jooinn.com/images/cards-1.png">Punt de joc<img src = "https://pluspng.com/img-png/playing-cards-png-hd-ace-playing-card-png-2494.png"></h1>
+		
+		</div>
+
+		<div>
+			<button>hola1</button>
+			<button>hola1</button>
+			<button>hola1</button>
+			<button>hola1</button>
+		</div>
+	</header>
+</body>
+</html> 
