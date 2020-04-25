@@ -1,0 +1,15 @@
+
+let statics = setInterval(setStatics, 1000);
+const user = new User(prompt("Inserte su nombre:", ));
+document.write("N: " + user.nick + " Monedas: " + user.monedas);
+
+function User(nick) {
+	this.nick = nick;
+	this.monedas = 300;
+	this.dinero = 0.0;
+}
+function setStatics(){
+document.getElementById("name").innerHTML = user.nick;
+document.getElementById("gold").innerHTML = user.monedas + "g";
+document.getElementById("dinero").innerHTML = user.dinero + "€";
+}
