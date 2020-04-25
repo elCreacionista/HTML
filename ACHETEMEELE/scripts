@@ -1,15 +1,43 @@
 
-let statics = setInterval(setStatics, 1000);
-const user = new User(prompt("Inserte su nombre:", ));
-document.write("N: " + user.nick + " Monedas: " + user.monedas);
+const user = new User(/*prompt("Introdueixi el seu nom:", )*/"Pepe");
+setStatics();
+let statics = setInterval(setStatics, 5000);
 
 function User(nick) {
 	this.nick = nick;
-	this.monedas = 300;
-	this.dinero = 0.0;
+	if (nick == null || nick == "")
+		this.nick = "Usuari";
+	this.monedas = 1000;
+	this.dinero = 30.0;
 }
 function setStatics(){
 document.getElementById("name").innerHTML = user.nick;
-document.getElementById("gold").innerHTML = user.monedas + "g";
-document.getElementById("dinero").innerHTML = user.dinero + "€";
+document.getElementById("gold").innerHTML = user.monedas + " g";
+document.getElementById("dinero").innerHTML = user.dinero + " €";
 }
+
+
+
+function GameMenu(){
+let text = "<button onclick= 'AzarGameMenu()' class = 'button'>Juego de azar</button>";
+text += "<button onclick= 'AzarGameMenu()' class = 'button'>Juego de azar</button>";
+text += "<button onclick= 'AzarGameMenu()' class = 'button'>Juego de azar</button>";
+
+document.querySelector("#GameMenu").style.display = "block";
+document.querySelector("#GameMenu").innerHTML += text;
+}
+
+
+
+
+
+
+function AzarGame(gold, selected, numbers){
+	user.monedas -= gold
+	let variable = Math.floor(Math.random() * numbers);
+	if (variable == selected){
+		user.monedas += gold * numbers;
+	}
+	
+}
+
