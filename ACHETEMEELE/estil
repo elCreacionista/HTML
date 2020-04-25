@@ -16,20 +16,37 @@ button {
 /*HEADER*/
 header{
 background-color: rgb(150,50,50);
-height: 15vh;
+height: 100px;
+}
+
+/*MENU SEPARATOR*/
+header>div:nth-child(1){
+background-image: linear-gradient(to right, rgb(80,80,80), rgb(150,50,50));
+
+display: flex;
+flex-direction: row;
+
 }
 
 /*IMAGENES*/
-
 img{
 height:50px;
 width: 80px;
 }
 /*TITULO*/
-header>div>h1{
-background-color: rgb(150,80,80);
-background-image: linear-gradient(to right, rgb(80,80,80), rgb(150,50,50));
-color: white;
+header>div:nth-child(1)>h1{
+
+animation-name: bTOw;
+animation-duration: 1s;
+animation-iteration-count: infinite;
+
+}
+header>div:nth-child(1)>p{
+font-size: 30px;
+animation-name: bTOw;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+
 }
 
 /*MENU*/
@@ -43,3 +60,17 @@ header>div:nth-child(2)>button:hover{
 color: white;
 font-size: 30px;
 }
+
+
+
+/*ANIMACIONS*/
+@keyframes bTOw {
+	from {color: black;}
+	to {color: white;}
+}
+
+@keyframes sTOu {
+	from {margin-left: 300px;}
+	to {margin-left: 0;}
+}
+
