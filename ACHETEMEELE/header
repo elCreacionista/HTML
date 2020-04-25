@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ca">
 <head>
 	<title>Page Title</title>
 	<link rel="stylesheet" href="css.css">
@@ -8,38 +8,45 @@
 <body>
 	<header>
 		<div>
-			<p> > > > > ></p>
-			<img alt= "Baraja" src = "https://jooinn.com/images/cards-1.png">
+			<p class = "p1">&#187;</p> <p class = "p2">&#187;</p> <p class = "p3">&#187;</p> 
+			<p class = "p4">&#187;</p> <p class = "p5">&#187;</p>
+
+			<img alt= "Baraja1" src = "https://jooinn.com/images/cards-1.png">
 			<h1>Punt de joc</h1>
-			<img alt= "Baraja" src = "https://pluspng.com/img-png/playing-cards-png-hd-ace-playing-card-png-2494.png">
-			<p>&lt; &lt; &lt; &lt; &lt;</p>
-		
+			<img alt= "Baraja2" src = "https://pluspng.com/img-png/playing-cards-png-hd-ace-playing-card-png-2494.png">
+
+			<p class = "p5">&#171;</p> <p class = "p4">&#171;</p> <p class = "p3">&#171;</p> 
+			<p class = "p2">&#171;</p> <p class = "p1">&#171;</p>
 		</div>
 
 		<div>
 			<div id= "statics">
 				<article>
-					<h4>Name: </h4>
+					<h4>Nom: </h4>
 					<p id = "name"></p>
 				</article>
 
 				<article>
-					<h4>Oro: </h4>
+					<h4>Gold: </h4>
 					<p id = "gold"></p>
 
-					<h4>Dinero: </h4>
+					<h4>Doblers: </h4>
 					<p id = "dinero"></p>
 				</article>
 			</div>
 			
 			<div id= "menu">
-				<button>hola1</button>
+				<button onclick = "GameMenu()" class = "button">hola1</button>
 				<button>hola1</button>
 				<button>hola1</button>
 				<button>hola1</button>
 			</div>
 		</div>
 	</header>
+	<section id= "GameMenu">
+	</section>
+	<main>
+	</main>
 <script src= "js.js"></script>
 </body>
 </html> 
