@@ -50,15 +50,37 @@ animation-iteration-count: infinite;
 }
 
 /*MENU*/
+
 header>div:nth-child(2){
-margin-left: 30vw;
-width: 60vw;
 display: flex;
+flex-direction: row;
 justify-content: space-around;
 }
-header>div:nth-child(2)>button:hover{
+	/*SUBMENU*/
+#menu{
+
+margin-left: 0;
+width: 60vw;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+}
+#menu>button:hover{
 color: white;
 font-size: 30px;
+}
+
+	/*USERSTATICS*/
+#statics>article{
+color: white;
+display: flex;
+flex-direction: row;
+}
+#statics>article>h4{
+width: 80px;
+}
+#statics>article>p{
+width: 120px;
 }
 
 
