@@ -16,10 +16,10 @@ button {
 /*HEADER*/
 header{
 background-color: rgb(150,50,50);
-height: 100px;
+height: 120px;
 }
 
-/*MENU SEPARATOR*/
+/*TITULO BACKGROUND*/
 header>div:nth-child(1){
 background-image: linear-gradient(to right, rgb(80,80,80), rgb(150,50,50));
 
@@ -41,13 +41,11 @@ animation-duration: 1s;
 animation-iteration-count: infinite;
 
 }
+/*FLECHAS*/
 header>div:nth-child(1)>p{
-font-size: 30px;
-animation-name: bTOw;
-animation-duration: 2s;
-animation-iteration-count: infinite;
-
+font-size: 50px;
 }
+
 
 /*MENU*/
 
@@ -65,7 +63,7 @@ display: flex;
 flex-direction: row;
 justify-content: space-around;
 }
-#menu>button:hover{
+.button:hover{
 color: white;
 font-size: 30px;
 }
@@ -84,15 +82,57 @@ width: 120px;
 }
 
 
+/*GAME MENU*/
+#GameMenu{
+background-color: rgb(180,100,100);
+position: absolute;
+margin-left: 70%;
+height: 50vh;
+width: 30%;
+display: none;
+}
+
+
+
 
 /*ANIMACIONS*/
 @keyframes bTOw {
-	from {color: black;}
-	to {color: white;}
+	from {color: white;}
+	to {color: black;}
 }
 
-@keyframes sTOu {
-	from {margin-left: 300px;}
-	to {margin-left: 0;}
+@keyframes arcoiris {
+	from {background-image: linear-gradient(to right, red, green);}
+	to {background-image: linear-gradient(to left, red, green);}
 }
 
+.p1{
+animation-name: bTOw;
+animation-duration: 2.5s;
+animation-delay: .5s;
+animation-iteration-count: infinite;
+}
+.p2{
+animation-name: bTOw;
+animation-duration: 2.5s;
+animation-delay: 1s;
+animation-iteration-count: infinite;
+}
+.p3{
+animation-name: bTOw;
+animation-duration: 2.5s;
+animation-delay: 1.5s;
+animation-iteration-count: infinite;
+}
+.p4{
+animation-name: bTOw;
+animation-duration: 2.5s;
+animation-delay: 2s;
+animation-iteration-count: infinite;
+}
+.p5{
+animation-name: bTOw;
+animation-duration: 2.5s;
+animation-delay: 2.5s;
+animation-iteration-count: infinite;
+}
