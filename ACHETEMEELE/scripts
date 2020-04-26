@@ -1,34 +1,81 @@
 
+
 const user = new User(/*prompt("Introdueixi el seu nom:", )*/"Pepe");
 setStatics();
-let statics = setInterval(setStatics, 5000);
+let statics = setInterval(setStatics, 1000);
+let comprovarCosas = setInterval(ComprovarCosas, 100);
+let selected = "nothing";
 
 function User(nick) {
 	this.nick = nick;
 	if (nick == null || nick == "")
 		this.nick = "Usuari";
-	this.monedas = 1000;
+	this.gold = 1000.0;
 	this.dinero = 30.0;
 }
 function setStatics(){
-document.getElementById("name").innerHTML = user.nick;
-document.getElementById("gold").innerHTML = user.monedas + " g";
-document.getElementById("dinero").innerHTML = user.dinero + " €";
+	document.getElementById("name").innerHTML = user.nick;
+	document.getElementById("gold").innerHTML = user.gold + " g";
+	document.getElementById("dinero").innerHTML = user.dinero + " €";
+
+}
+
+function ComprovarCosas(){
+
+	if (selected == "Moneda"){
+		let numero = document.querySelector("#MonedaGold");
+		document.querySelector("#Monedainput").innerHTML = numero.value + " g";
+	}
+
 }
 
 
 
-function GameMenu(){
-let text = "<button onclick= 'AzarGameMenu()' class = 'button'>Juego de azar</button>";
-text += "<button onclick= 'AzarGameMenu()' class = 'button'>Juego de azar</button>";
-text += "<button onclick= 'AzarGameMenu()' class = 'button'>Juego de azar</button>";
+function AzarGameMenu(){
 
-document.querySelector("#GameMenu").style.display = "block";
-document.querySelector("#GameMenu").innerHTML += text;
+	if (selected != "Azar"){
+
+	
+		selected = "Azar";
+		document.querySelector("#AzarGameMenu").style.display = "flex";
+		return;
+	}
+	else {
+		document.querySelector("#AzarGameMenu").style.display = "none";
+		selected = "nothing";
+	}
 }
 
 
+function MonedaMenu(){
 
+	if (selected != "Moneda"){
+		selected = "Moneda";
+		document.querySelector("#MonedaMenu").style.display = "flex";
+		return;
+	}
+	else {
+		document.querySelector("#MonedaMenu").style.display = "none";
+		selected = "nothing";
+	}
+
+}
+function JugarMoneda(){
+	let jugada = document.querySelector("#MonedaGold").value;
+	if (user.gold < jugada){
+		document.querySelector("#dialogoMoneda").innerHTML = "No tens suficient gold";
+	}else {
+		if (Math.random() > .5){
+
+			document.querySelector("#dialogoMoneda").innerHTML = "Has guanyat " + Math.floor(jugada * .95);
+			user.gold += parseInt(jugada * .95);
+		} else{
+			document.querySelector("#dialogoMoneda").innerHTML = "Has perdut " + jugada;
+			user.gold -= jugada;
+		}
+	}
+
+}
 
 
 
@@ -40,4 +87,3 @@ function AzarGame(gold, selected, numbers){
 	}
 	
 }
-
