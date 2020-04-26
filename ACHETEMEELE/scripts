@@ -23,8 +23,19 @@ function setStatics(){
 function ComprovarCosas(){
 
 	if (selected == "Moneda"){
-		let numero = document.querySelector("#MonedaGold");
-		document.querySelector("#Monedainput").innerHTML = numero.value + " g";
+		document.querySelector("#Monedainput").innerHTML = document.querySelector("#MonedaGold").value + " g";
+	}
+	if (selected == "Dado"){
+		document.querySelector("#Dadoinput1").innerHTML = document.querySelector("#DadoGold1").value + " g";
+		
+		let numerodados = document.querySelector("#DadoGold2").value;
+		
+		document.querySelector("#Dadoinput2").innerHTML = numerodados;
+
+		
+		let seleccion = document.querySelector("#DadoGold3");
+		document.querySelector("#Dadoinput3").innerHTML = selection.value;
+		seleccion.max = numerodados.value * 6;
 	}
 
 }
@@ -33,7 +44,7 @@ function ComprovarCosas(){
 
 function AzarGameMenu(){
 
-	if (selected != "Azar"){
+	if (selected != "Azar" && selected != "Moneda" && selected != "Dado"){
 
 	
 		selected = "Azar";
@@ -46,28 +57,64 @@ function AzarGameMenu(){
 	}
 }
 
+function comprobarAzarMenu(){
+	switch(selected){
+		case "Moneda":
+			document.querySelector("#MonedaMenu").style.display = "flex";
+			document.querySelector("#DadoMenu").style.display = "none";
+		break;
+		case "Dado":
 
-function MonedaMenu(){
-
-	if (selected != "Moneda"){
-		selected = "Moneda";
-		document.querySelector("#MonedaMenu").style.display = "flex";
-		return;
-	}
-	else {
-		document.querySelector("#MonedaMenu").style.display = "none";
-		selected = "nothing";
+			document.querySelector("#DadoMenu").style.display = "flex";
+			document.querySelector("#MonedaMenu").style.display = "none";
+		break;
+		case "Azar":
+			document.querySelector("#DadoMenu").style.display = "none";
+			document.querySelector("#MonedaMenu").style.display = "none";
+		break;
 	}
 
 }
-function JugarMoneda(){
-	let jugada = document.querySelector("#MonedaGold").value;
-	if (user.gold < jugada){
-		document.querySelector("#dialogoMoneda").innerHTML = "No tens suficient gold";
+
+function MonedaMenu(){
+	
+	if (selected != "Moneda"){
+		AnimacionMostrar(document.querySelector("#MonedaMenu"));
+		selected = "Moneda";
+		comprobarAzarMenu();
+		return;
+	}
+	else {
+		AnimacionEsconder(document.querySelector("#MonedaMenu"));
+		selected = "Azar";
+		comprobarAzarMenu();
+	}
+
+}
+function DadoMenu(){
+	
+	if (selected != "Dado"){
+		AnimacionMostrar(document.querySelector("#DadoMenu"));
+		selected = "Dado";
+		comprobarAzarMenu();
+		return;
+	}
+	else {
+		selected = "Azar";
+		comprobarAzarMenu();
+	}
+
+}
+
+function JugarDado(){
+	let jugada = document.querySelector("#DadoGold1").value;
+	let dados = document.querySelector("#DadoGold2").value;
+	if (user.gold < jugada * dados){
+		document.querySelector("#dialogoDado").innerHTML = "No tens suficient gold";
 	}else {
 		if (Math.random() > .5){
 
-			document.querySelector("#dialogoMoneda").innerHTML = "Has guanyat " + Math.floor(jugada * .95);
+			document.querySelector("#dialogoMoneda").innerHTML = "Has guanyat " + Math.ceil(jugada * .95);
 			user.gold += parseInt(jugada * .95);
 		} else{
 			document.querySelector("#dialogoMoneda").innerHTML = "Has perdut " + jugada;
@@ -79,11 +126,65 @@ function JugarMoneda(){
 
 
 
-function AzarGame(gold, selected, numbers){
-	user.monedas -= gold
-	let variable = Math.floor(Math.random() * numbers);
-	if (variable == selected){
-		user.monedas += gold * numbers;
+function JugarMoneda(){
+	let jugada = document.querySelector("#MonedaGold").value;
+	if (user.gold < jugada){
+		document.querySelector("#dialogoMoneda").innerHTML = "No tens suficient gold";
+	}else {
+		if (Math.random() > .5){
+
+			document.querySelector("#dialogoMoneda").innerHTML = "Has guanyat " + Math.ceil(jugada * .95);
+			user.gold += parseInt(Math.ceil(jugada * .95));
+		} else{
+			document.querySelector("#dialogoMoneda").innerHTML = "Has perdut " + jugada;
+			user.gold -= jugada;
+		}
 	}
+
+}
+
+
+function AnimacionMostrar(domElement){
+	height = 0;
+	let arrElements = document.querySelectorAll(".hide1");
+		for (let i = 0; i < arrElements.length; i++){
+			arrElements[i].style.display = "none"
+		}
+	let interval = setInterval(timer, 5)
 	
+	function timer(){
+		if (height == 60)
+			clearInterval(interval);
+		else{
+			height ++;
+			domElement.style.height = height + "%";
+			if (height == 30){
+			for (let i = 0; i < arrElements.length; i++)
+				arrElements[i].style.display = "block"
+			}
+		}				
+	}
+}
+function AnimacionEsconder(domElement){
+	height = 60;
+	let arrElements = document.querySelectorAll(".hide1");
+		for (let i = 0; i < arrElements.length; i++){
+			arrElements[i].style.display = "block"
+		}
+	let interval = setInterval(timer, 5)
+	
+	function timer(){
+		if (height == 0)
+			clearInterval(interval);
+		else{
+			height --;
+			domElement.style.height = height + "%";
+			if (height == 30){
+			for (let i = 0; i < arrElements.length; i++)
+				arrElements[i].style.display = "none"
+			}
+		}
+					
+	}
+
 }
