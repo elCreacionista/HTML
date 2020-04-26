@@ -1,15 +1,19 @@
 
 
-const user = new User(/*prompt("Introdueixi el seu nom:", )*/"Pepe");
+const user = new User(/*prompt("Introdueixi el seu nom:", )*/ "Admin");
 setStatics();
 let statics = setInterval(setStatics, 1000);
 let comprovarCosas = setInterval(ComprovarCosas, 100);
-let selected = "nothing";
+let menuselected = "Nothing";
+let submenuselected = "Nothing";
+let arrbuttons = document.querySelectorAll(".button");
+for (let i = 0; i < arrbuttons.length; i++)
+	arrbuttons[i].style.cursor = "pointer";
 
 function User(nick) {
+	if (nick == null || nick == ""){ this.nick = "Usuari"; this.gold = 3000.0; this.dinero = 30.0; return;}
+	if (nick == "Admin"){ this.nick = nick; this.gold = 9999999.0; this.dinero = 1000.0; return;}
 	this.nick = nick;
-	if (nick == null || nick == "")
-		this.nick = "Usuari";
 	this.gold = 1000.0;
 	this.dinero = 30.0;
 }
@@ -21,87 +25,76 @@ function setStatics(){
 }
 
 function ComprovarCosas(){
-
-	if (selected == "Moneda"){
+	if (submenuselected == "Moneda"){
 		document.querySelector("#Monedainput").innerHTML = document.querySelector("#MonedaGold").value + " g";
 	}
-	if (selected == "Dado"){
+	if (submenuselected == "Dado"){
 		document.querySelector("#Dadoinput1").innerHTML = document.querySelector("#DadoGold1").value + " g";
-		
 		let numerodados = document.querySelector("#DadoGold2").value;
-		
 		document.querySelector("#Dadoinput2").innerHTML = numerodados;
-
-		
 		let seleccion = document.querySelector("#DadoGold3");
-		document.querySelector("#Dadoinput3").innerHTML = selection.value;
-		seleccion.max = numerodados.value * 6;
+		seleccion.max = numerodados * 6;
+		document.querySelector("#Dadoinput3").innerHTML = seleccion.value;
 	}
-
 }
-
+function ComprovarSubmenu(){
+	if (submenuselected == "Nothing"){
+		document.querySelector("#DadoMenu").style.display = "none";
+		document.querySelector("#MonedaMenu").style.display = "none";
+	} else if (submenuselected == "Moneda"){
+		document.querySelector("#DadoMenu").style.display = "none";
+	}
+	else if (submenuselected == "Dado"){
+		document.querySelector("#MonedaMenu").style.display = "none";
+	}
+console.log("hola")
+}
 
 
 function AzarGameMenu(){
 
-	if (selected != "Azar" && selected != "Moneda" && selected != "Dado"){
+	if (menuselected != "Azar"){
 
 	
-		selected = "Azar";
-		document.querySelector("#AzarGameMenu").style.display = "flex";
+		menuselected = "Azar";
+		let quitarMenuInterval = setInterval(ComprovarSubmenu, 10)
+		setTimeout(function(){clearInterval(quitarMenuInterval)}, 180);
+		MostrarMenu(document.querySelector("#AzarMenu"));
 		return;
 	}
 	else {
-		document.querySelector("#AzarGameMenu").style.display = "none";
-		selected = "nothing";
+		EsconderMenu(document.querySelector("#" + menuselected + "Menu"));
+		menuselected = "Nothing";
 	}
 }
 
-function comprobarAzarMenu(){
-	switch(selected){
-		case "Moneda":
-			document.querySelector("#MonedaMenu").style.display = "flex";
-			document.querySelector("#DadoMenu").style.display = "none";
-		break;
-		case "Dado":
 
-			document.querySelector("#DadoMenu").style.display = "flex";
-			document.querySelector("#MonedaMenu").style.display = "none";
-		break;
-		case "Azar":
-			document.querySelector("#DadoMenu").style.display = "none";
-			document.querySelector("#MonedaMenu").style.display = "none";
-		break;
-	}
-
-}
 
 function MonedaMenu(){
 	
-	if (selected != "Moneda"){
-		AnimacionMostrar(document.querySelector("#MonedaMenu"));
-		selected = "Moneda";
-		comprobarAzarMenu();
+	if (submenuselected != "Moneda"){
+		AnimacionEsconder(document.querySelector("#" + submenuselected + "Menu"))
+		submenuselected = "Moneda";
+		AnimacionMostrar(document.querySelector("#" + submenuselected + "Menu"));
 		return;
 	}
 	else {
 		AnimacionEsconder(document.querySelector("#MonedaMenu"));
-		selected = "Azar";
-		comprobarAzarMenu();
+		submenuselected = "Nothing";
 	}
 
 }
 function DadoMenu(){
 	
-	if (selected != "Dado"){
-		AnimacionMostrar(document.querySelector("#DadoMenu"));
-		selected = "Dado";
-		comprobarAzarMenu();
+	if (submenuselected != "Dado"){
+		AnimacionEsconder(document.querySelector("#" + submenuselected + "Menu"))
+		submenuselected = "Dado";
+		AnimacionMostrar(document.querySelector("#" + submenuselected + "Menu"));
 		return;
 	}
 	else {
-		selected = "Azar";
-		comprobarAzarMenu();
+		AnimacionEsconder(document.querySelector("#DadoMenu"));
+		submenuselected = "Nothing";
 	}
 
 }
@@ -109,15 +102,23 @@ function DadoMenu(){
 function JugarDado(){
 	let jugada = document.querySelector("#DadoGold1").value;
 	let dados = document.querySelector("#DadoGold2").value;
+	let respuesta = document.querySelector("#DadoGold3").value;
 	if (user.gold < jugada * dados){
 		document.querySelector("#dialogoDado").innerHTML = "No tens suficient gold";
 	}else {
-		if (Math.random() > .5){
 
-			document.querySelector("#dialogoMoneda").innerHTML = "Has guanyat " + Math.ceil(jugada * .95);
-			user.gold += parseInt(jugada * .95);
+		let arrdados = []
+		for (let i = 0; i < dados; i++)
+			arrdados[i] = Math.floor(Math.random() * 6);
+		let total = 0;
+		for (let i = 0; i < arrdados.length; i++)
+			total += arrdados[i];
+		if (total == respuesta){
+
+			document.querySelector("#dialogoDado").innerHTML = "Has guanyat " + Math.ceil(jugada * .95) * dados;
+			user.gold += parseInt(jugada * .95) * (dados);
 		} else{
-			document.querySelector("#dialogoMoneda").innerHTML = "Has perdut " + jugada;
+			document.querySelector("#dialogoDado").innerHTML = "Has perdut " + jugada;
 			user.gold -= jugada;
 		}
 	}
@@ -145,46 +146,83 @@ function JugarMoneda(){
 
 
 function AnimacionMostrar(domElement){
-	height = 0;
-	let arrElements = document.querySelectorAll(".hide1");
-		for (let i = 0; i < arrElements.length; i++){
-			arrElements[i].style.display = "none"
-		}
-	let interval = setInterval(timer, 5)
-	
-	function timer(){
-		if (height == 60)
-			clearInterval(interval);
+	height1 = 0;
+	let arrElements1 = domElement.children;
+	let mostrar = setInterval(timer1, 1)
+	function timer1(){
+		if (height1 == 60)
+			clearInterval(mostrar);
 		else{
-			height ++;
-			domElement.style.height = height + "%";
-			if (height == 30){
-			for (let i = 0; i < arrElements.length; i++)
-				arrElements[i].style.display = "block"
+			height1 ++;
+			domElement.style.height = height1 + "%";
+			if (height1 == 30){
+			for (let i = 0; i < arrElements1.length; i++)
+				arrElements1[i].style.display = "flex";
 			}
 		}				
 	}
+	domElement.style.display = "flex";
+}
+function MostrarMenu(domElement){
+	height1 = 0;
+	let arrElements1 = domElement.children;
+	let mostrar = setInterval(timer1, 1)
+	function timer1(){
+		if (height1 == 60)
+			clearInterval(mostrar);
+		else{
+			height1 ++;
+			domElement.style.height = height1 + "%";
+			if (height1 == 30){
+			for (let i = 0; i < arrElements1.length; i++)
+				arrElements1[i].style.display = "flex";
+			}
+		}				
+	}
+	domElement.style.display = "flex";
 }
 function AnimacionEsconder(domElement){
-	height = 60;
-	let arrElements = document.querySelectorAll(".hide1");
-		for (let i = 0; i < arrElements.length; i++){
-			arrElements[i].style.display = "block"
+	height2 = 60;
+	let arrElements2 = domElement.children;
+	let esconder = setInterval(timer2, 1)
+	function timer2(){
+		if (height2 == 0){
+			clearInterval(esconder);
+			domElement.style.display = "flex";
+		}else{
+			height2 --;
+			domElement.style.height = height2 + "%";
+			if (height2 == 40){
+			for (let i = 0; i < arrElements2.length; i++)
+				arrElements2[i].style.display = "none"
+			}
 		}
-	let interval = setInterval(timer, 5)
-	
-	function timer(){
-		if (height == 0)
-			clearInterval(interval);
-		else{
-			height --;
-			domElement.style.height = height + "%";
-			if (height == 30){
-			for (let i = 0; i < arrElements.length; i++)
-				arrElements[i].style.display = "none"
+					
+	}
+}
+function EsconderMenu(domElement){
+	height2 = 60;
+	let arrElements2 = domElement.children;
+	let esconder = setInterval(timer2, 1)
+	function timer2(){
+		if (height2 == 0){
+			clearInterval(esconder);
+			domElement.style.display = "flex";
+		}else{
+			height2 --;
+			domElement.style.height = height2 + "%";
+			if (height2 == 40){
+			for (let i = 0; i < arrElements2.length; i++)
+				arrElements2[i].style.display = "none"
 			}
 		}
 					
 	}
 
+
+
 }
+
+
+
+
