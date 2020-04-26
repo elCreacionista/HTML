@@ -36,14 +36,25 @@
 			</div>
 			
 			<div id= "menu">
-				<button onclick = "GameMenu()" class = "button">hola1</button>
-				<button>hola1</button>
-				<button>hola1</button>
-				<button>hola1</button>
+				<button onclick = "AzarGameMenu()" class = "button">Jocs d'atzar</button>
+				<button class = "button">hola1</button>
+				<button class = "button">hola1</button>
+				<button class = "button">hola1</button>
 			</div>
 		</div>
 	</header>
-	<section id= "GameMenu">
+	<section id= "AzarGameMenu" class = "SubMenu">
+		<button onclick= 'MonedaMenu()' class = 'button'>Llancar una moneda</button>
+		<div id = "MonedaMenu" class = "SubSubMenu">
+			<h4>Cuantitat a apostar: </h4> <p id= "Monedainput">Numero</p>
+			<input type="range" id="MonedaGold" name="MonedaGold" min="1" max="5000">
+			<button onclick = "JugarMoneda()" class = 'button'>Jugar</button>
+			<button onclick = "CancelarMoneda()" class = 'button'>Cancelar</button>
+			<h5 id = "dialogoMoneda"></h5>
+		</div>
+
+		<button onclick= 'AzarGameMenu()' class = 'button'>Llancar daus</button>
+		<button onclick= 'AzarGameMenu()' class = 'button'>Loteria</button>
 	</section>
 	<main>
 	</main>
