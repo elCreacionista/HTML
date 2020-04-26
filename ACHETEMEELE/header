@@ -44,16 +44,28 @@
 		</div>
 	</header>
 	<section id= "AzarGameMenu" class = "SubMenu">
+
 		<button onclick= 'MonedaMenu()' class = 'button'>Llancar una moneda</button>
 		<div id = "MonedaMenu" class = "SubSubMenu">
-			<h4>Cuantitat a apostar: </h4> <p id= "Monedainput">Numero</p>
-			<input type="range" id="MonedaGold" name="MonedaGold" min="1" max="5000">
-			<button onclick = "JugarMoneda()" class = 'button'>Jugar</button>
-			<button onclick = "CancelarMoneda()" class = 'button'>Cancelar</button>
-			<h5 id = "dialogoMoneda"></h5>
+			<h4 class = "hide1">Cuantitat a apostar: </h4> <p id= "Monedainput" class = "hide1">Numero</p>
+			<input type="range" id="MonedaGold" name="MonedaGold" min="1" max="5000" class = "hide1">
+			<button onclick = "JugarMoneda()" class = 'button' class = "hide1">Jugar</button>
+			<button onclick = "AzarGameMenu()" class = 'button' class = "hide1">Cancelar</button>
+			<h5 id = "dialogoMoneda" class = "hide1"></h5>
 		</div>
 
-		<button onclick= 'AzarGameMenu()' class = 'button'>Llancar daus</button>
+		<button onclick= 'DadoMenu()' class = 'button'>Llancar daus</button>
+		<div id = "DadoMenu" class = "SubSubMenu">
+			<h4 class = "hide1">Cuantitat a apostar: </h4> <p id= "Dadoinput1" class = "hide1">Numero</p>
+			<input type="range" id="DadoGold1" name="DadoGold1" min="1" max="5000" class = "hide1">
+			<h4 class = "hide1">Numero de daus: </h4> <p id= "Dadoinput2" class = "hide1">Numero</p>
+			<input type="range" id="DadoGold2" name="DadoGold2" min="1" max="10" class = "hide1">
+			<h4 class = "hide1">Aposta: </h4> <p id= "Dadoinput3" class = "hide1">Numero</p>
+			<input type="range" id="DadoGold3" name="DadoGold3" min="1" max="60" class = "hide1">
+			<button onclick = "JugarDado()" class = 'button' class = "hide1">Jugar</button>
+			<button onclick = "AzarGameMenu()" class = 'button' class = "hide1">Cancelar</button>
+			<h5 id = "dialogoDado" class = "hide1"></h5>
+		</div>
 		<button onclick= 'AzarGameMenu()' class = 'button'>Loteria</button>
 	</section>
 	<main>
