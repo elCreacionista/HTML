@@ -2,19 +2,25 @@
 margin: 0;
 padding: 0;
 box-sizing: border-box;
+z-index: 0;
 }
 /*QUITAR ESTILO A LOS BOTONES*/
 button {
-  background: none;
-  border: 0;
-  color: inherit;
-  font: inherit;
-  line-height: normal;
-  padding: 0;
+background: none;
+border: 0;
+color: inherit;
+font: inherit;
+line-height: normal;
+padding: 0;
+text-align: center;
 }
-.button:hover{
+
+button:hover{
 color: white;
 font-size: 30px;
+}
+.menubutton{
+width: 45%;
 }
 
 /*HEADER*/
@@ -111,13 +117,28 @@ flex-wrap: wrap;
 .SubSubMenu>p{
 width: 40%;
 }
-input{
+.biginput{
 width: 90%;
+}
+.halfinput{
+width: 60%;
 }
 
 
-
 /*ANIMACIONS*/
+
+#animation{
+background-color: black;
+position: absolute;
+z-index: -1;
+}
+#animation>rect{
+background-color: black;
+position: absolute;
+z-index: 1;
+}
+
+
 @keyframes bTOw {
 	from {color: yellow;}
 	to {color: black;}
