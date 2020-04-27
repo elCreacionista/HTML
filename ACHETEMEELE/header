@@ -36,43 +36,80 @@
 			</div>
 			
 			<div id= "menu">
-				<button onclick = "AzarGameMenu()" class = "button">Jocs d'atzar</button>
-				<button class = "button">hola1</button>
+				<button onclick = 'GameMenu("Azar")' class = "button">Jocs d'atzar</button>
+				<button onclick = 'GameMenu("Azar")' class = "button">hola1</button>
 				<button class = "button">hola1</button>
 				<button class = "button">hola1</button>
 			</div>
 		</div>
 	</header>
 	<section id= "AzarMenu" class = "SubMenu">
-		<button onclick= 'MonedaMenu()' class = 'button'>Llancar una moneda</button>
+		<button onclick= 'SubSubMenu("Moneda")' class = 'button'>Llancar una moneda</button>
 		<div id = "MonedaMenu" class = "SubSubMenu">
 			<h4 class = "hide1">Cuantitat a apostar: </h4> <p id= "Monedainput" class = "hide1">Numero</p>
-			<input type="range" id="MonedaGold" name="MonedaGold" min="1" max="5000" class = "hide1">
-			<button onclick = "JugarMoneda()" class = 'button' class = "hide1">Jugar</button>
-			<button onclick = "AzarGameMenu()" class = 'button' class = "hide1">Cancelar</button>
+			<input type="range" id="MonedaGold" name="MonedaGold" min="1" max="5000" class = "biginput" class = "hide1">
+			<button onclick = "JugarMoneda(event)" class = 'button' class = "hide1">Jugar</button>
+			<button onclick= 'SubSubMenu("Moneda")' class = 'button' class = "hide1">Cancelar</button>
 			<h5 id = "dialogoMoneda" class = "hide1"></h5>
 		</div>
 
-		<button onclick= 'DadoMenu()' class = 'button'>Llancar daus</button>
+		<button onclick= 'SubSubMenu("Dado")' class = 'button'>Llancar daus</button>
 		<div id = "DadoMenu" class = "SubSubMenu">
 			<h4 class = "hide2">Cuantitat a apostar: </h4> <p id= "Dadoinput1" class = "hide2">Numero</p>
-			<input type="range" id="DadoGold1" name="DadoGold1" min="1" max="5000" class = "hide2">
+			<input type="range" id="DadoGold1" name="DadoGold1" min="1" max="5000" class = "biginput" class = "hide2">
 			<h4 class = "hide2">Numero de daus: </h4> <p id= "Dadoinput2" class = "hide2">Numero</p>
-			<input type="range" id="DadoGold2" name="DadoGold2" min="1" max="10" class = "hide2">
+			<input type="range" id="DadoGold2" name="DadoGold2" min="1" max="10" class = "biginput" class = "hide2">
 			<h4 class = "hide2">Aposta: </h4> <p id= "Dadoinput3" class = "hide2">Numero</p>
-			<input type="range" id="DadoGold3" name="DadoGold3" min="1" max="60" class = "hide2">
-			<button onclick = "JugarDado()" class = 'button' class = "hide2">Jugar</button>
-			<button onclick = "AzarGameMenu()" class = 'button' class = "hide2">Cancelar</button>
+			<input type="range" id="DadoGold3" name="DadoGold3" min="1" max="60" class = "biginput" class = "hide2">
+			<button onclick = "JugarDado(event)" class = 'menubutton' class = 'menubutton' class = 'button' class = "hide2">Jugar</button>
+			<button onclick= 'SubSubMenu("Dado")' class = 'menubutton' class = 'menubutton' class = 'button' class = "hide2">Cancelar</button>
 			<h5 id = "dialogoDado" class = "hide2"></h5>
 		</div>
-		<button onclick= 'AzarGameMenu()' class = 'button'>Loteria</button>
-
-
+		<button onclick= 'SubSubMenu("Loteria")' class = 'button'>Loteria</button>
+		<div id = "LoteriaMenu" class = "SubSubMenu">
+			<h4 class = "hide3">Aposta: </h4> <p id= "Loteriainput" class = "hide3">Numero</p>
+			<input type="range" id="LoteriaGold0" name="LoteriaGold0" min="0" max="9" class = "halfinput" class = "hide3">
+			<input type="range" id="LoteriaGold1" name="LoteriaGold1" min="0" max="9" class = "halfinput" class = "hide3">
+			<input type="range" id="LoteriaGold2" name="LoteriaGold2" min="0" max="9" class = "halfinput" class = "hide3">
+			<input type="range" id="LoteriaGold3" name="LoteriaGold3" min="0" max="9" class = "halfinput" class = "hide3">
+			<input type="range" id="LoteriaGold4" name="LoteriaGold4" min="0" max="9" class = "halfinput" class = "hide3">
+			<button onclick = "JugarLoteria(event)" class = 'menubutton' class = 'button' class = "hide3">Jugar</button>
+			<button onclick= 'SubSubMenu("Loteria")' class = 'menubutton' class = 'button' class = "hide3">Cancelar</button>
+			<h5 id = "dialogoLoteria" class = "hide3"></h5>
+		</div>
 
 
 		<div id = "NothingMenu"><p></p></div>
 	</section>
-	<main>
+	<main style = "background-color: green;">
+
+
+	<svg width="400" height="200"  id = "animation">
+		<text x="0" y="15" fill="white" id= "animationtext0"></text>
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation0"/>
+ 		<rect width="8" height="8" rx="20" ry="20" id= "animation1" />
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation2" />
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation3" />
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation4" />
+		<text x="0" y="15" fill="white" id= "animationtext5"></text>
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation5" />
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation6" />
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation7" />
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation8" />
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation9" />
+		<text x="0" y="15" fill="white" id= "animationtext10"></text>
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation10" />
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation11" />
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation12" />
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation13" />
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation14" />
+		<text x="0" y="15" fill="white" id= "animationtext15"></text>
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation15" />
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation16" />
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation17" />
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation18" />
+  		<rect width="8" height="8" rx="20" ry="20" id= "animation19" />
+	</svg>
 	</main>
 <script src= "js.js"></script>
 </body>
