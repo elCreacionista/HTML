@@ -36,70 +36,69 @@ function ComprovarCosas(){
 		seleccion.max = numerodados * 6;
 		document.querySelector("#Dadoinput3").innerHTML = seleccion.value;
 	}
+	if (submenuselected == "Loteria"){
+		let loteria = "";
+		for (let i = 0; i < 5; i++)
+			loteria += document.querySelector("#LoteriaGold" + i).value;
+		document.querySelector("#Loteriainput").innerHTML = loteria;
+
+	}
 }
 function ComprovarSubmenu(){
 	if (submenuselected == "Nothing"){
 		document.querySelector("#DadoMenu").style.display = "none";
 		document.querySelector("#MonedaMenu").style.display = "none";
+		document.querySelector("#LoteriaMenu").style.display = "none";
 	} else if (submenuselected == "Moneda"){
 		document.querySelector("#DadoMenu").style.display = "none";
+		document.querySelector("#LoteriaMenu").style.display = "none";
 	}
 	else if (submenuselected == "Dado"){
 		document.querySelector("#MonedaMenu").style.display = "none";
+		document.querySelector("#LoteriaMenu").style.display = "none";
 	}
-console.log("hola")
+	else if (submenuselected == "Loteria"){
+		document.querySelector("#MonedaMenu").style.display = "none";
+		document.querySelector("#DadoMenu").style.display = "none";
+	}
 }
 
 
-function AzarGameMenu(){
+function GameMenu(string){
 
-	if (menuselected != "Azar"){
+	if (menuselected != string){
 
 	
-		menuselected = "Azar";
-		let quitarMenuInterval = setInterval(ComprovarSubmenu, 10)
+		menuselected = string;
+		let quitarMenuInterval = setInterval(ComprovarSubmenu, 1)
 		setTimeout(function(){clearInterval(quitarMenuInterval)}, 180);
-		MostrarMenu(document.querySelector("#AzarMenu"));
+		AnimacionMostrar(document.querySelector("#" + menuselected + "Menu"));
 		return;
 	}
 	else {
-		EsconderMenu(document.querySelector("#" + menuselected + "Menu"));
+		AnimacionEsconder(document.querySelector("#" + menuselected + "Menu"));
 		menuselected = "Nothing";
 	}
 }
 
 
+function SubSubMenu(string){
 
-function MonedaMenu(){
-	
-	if (submenuselected != "Moneda"){
+	if (submenuselected != string){
 		AnimacionEsconder(document.querySelector("#" + submenuselected + "Menu"))
-		submenuselected = "Moneda";
+		submenuselected = string;
 		AnimacionMostrar(document.querySelector("#" + submenuselected + "Menu"));
 		return;
 	}
 	else {
-		AnimacionEsconder(document.querySelector("#MonedaMenu"));
-		submenuselected = "Nothing";
-	}
-
-}
-function DadoMenu(){
-	
-	if (submenuselected != "Dado"){
-		AnimacionEsconder(document.querySelector("#" + submenuselected + "Menu"))
-		submenuselected = "Dado";
-		AnimacionMostrar(document.querySelector("#" + submenuselected + "Menu"));
-		return;
-	}
-	else {
-		AnimacionEsconder(document.querySelector("#DadoMenu"));
+		AnimacionEsconder(document.querySelector("#" + submenuselected + "Menu"));
 		submenuselected = "Nothing";
 	}
 
 }
 
-function JugarDado(){
+
+function JugarDado(event){
 	let jugada = document.querySelector("#DadoGold1").value;
 	let dados = document.querySelector("#DadoGold2").value;
 	let respuesta = document.querySelector("#DadoGold3").value;
@@ -117,9 +116,11 @@ function JugarDado(){
 
 			document.querySelector("#dialogoDado").innerHTML = "Has guanyat " + Math.ceil(jugada * .95) * dados;
 			user.gold += parseInt(jugada * .95) * (dados);
+			VyD(true, event), Math.ceil(jugada * .95) * dados;
 		} else{
 			document.querySelector("#dialogoDado").innerHTML = "Has perdut " + jugada;
 			user.gold -= jugada;
+			VyD(false, event, jugada);
 		}
 	}
 
@@ -127,7 +128,7 @@ function JugarDado(){
 
 
 
-function JugarMoneda(){
+function JugarMoneda(event){
 	let jugada = document.querySelector("#MonedaGold").value;
 	if (user.gold < jugada){
 		document.querySelector("#dialogoMoneda").innerHTML = "No tens suficient gold";
@@ -136,12 +137,77 @@ function JugarMoneda(){
 
 			document.querySelector("#dialogoMoneda").innerHTML = "Has guanyat " + Math.ceil(jugada * .95);
 			user.gold += parseInt(Math.ceil(jugada * .95));
+			VyD(true, event, Math.ceil(jugada * .95));
 		} else{
 			document.querySelector("#dialogoMoneda").innerHTML = "Has perdut " + jugada;
 			user.gold -= jugada;
+			VyD(false, event, jugada);
 		}
 	}
 
+}
+/*ANIMACIONS*/
+
+let animationselected = 0;
+function VyD(ganado, event, ganancias){
+	
+	let distancia = 1;
+	let animation = [];
+	let direcciones = [];
+	let pos = [];
+	let text = document.querySelector("#animationtext" + animationselected);
+	let container = document.querySelector("#animation");
+	container.style.display = "block";
+	animationselected += 5;
+	if (animationselected == 20) animationselected = 0;
+	if (ganado){
+		text.innerHTML = "+" + ganancias; 
+		text.setAttributeNS(null, "fill", "yellow")
+	} else {
+		text.innerHTML = "-" + ganancias;
+		text.setAttributeNS(null, "fill", "red")
+	}
+	
+
+	for (let i = 0; i < 5; i++){
+		animation[i] = document.querySelector("#animation" + (animationselected + i));
+		pos[i] =  (Math.random() * 100) + 100;
+		direcciones[i] = (Math.random() * 3) - 1;
+		direcciones[i*2] = Math.random() * 2;
+	}
+
+	for (let i = 0; i < animation.length; i++)
+		if (ganado){ animation[i].style.fill = "rgb(250,200,0)";}
+		else animation[i].style.fill = "rgb(255,0,0)";
+
+	posinicial(animation, text);
+
+	text.setAttributeNS(null, "x", (Math.random() * 100) + 100);
+	text.setAttributeNS(null, "y", (Math.random() * 50) + 10);
+	let Animacion = setInterval(mover, 10);
+	function mover(){
+
+		
+		for (let i = 0; i < animation.length; i++){
+			animation[i].setAttributeNS(null, "x", pos[i] + (distancia * direcciones[i]));
+			animation[i].setAttributeNS(null, "y",(distancia * direcciones[i*2]));
+		}
+			distancia++;
+		if (distancia > 100){
+			clearInterval(Animacion);
+			posinicial(animation, text);
+			
+		}
+	}
+
+	function posinicial(domArray, domtext){
+		for (let i = 0; i < domArray.length; i++){
+			domArray[i].setAttributeNS(null, "x", 1500);
+			domArray[i].setAttributeNS(null, "y", 0);
+		}
+			domtext.setAttributeNS(null, "x", 1500);
+			domtext.setAttributeNS(null, "y", 0);
+	}
 }
 
 
@@ -163,24 +229,7 @@ function AnimacionMostrar(domElement){
 	}
 	domElement.style.display = "flex";
 }
-function MostrarMenu(domElement){
-	height1 = 0;
-	let arrElements1 = domElement.children;
-	let mostrar = setInterval(timer1, 1)
-	function timer1(){
-		if (height1 == 60)
-			clearInterval(mostrar);
-		else{
-			height1 ++;
-			domElement.style.height = height1 + "%";
-			if (height1 == 30){
-			for (let i = 0; i < arrElements1.length; i++)
-				arrElements1[i].style.display = "flex";
-			}
-		}				
-	}
-	domElement.style.display = "flex";
-}
+
 function AnimacionEsconder(domElement){
 	height2 = 60;
 	let arrElements2 = domElement.children;
@@ -199,28 +248,6 @@ function AnimacionEsconder(domElement){
 		}
 					
 	}
-}
-function EsconderMenu(domElement){
-	height2 = 60;
-	let arrElements2 = domElement.children;
-	let esconder = setInterval(timer2, 1)
-	function timer2(){
-		if (height2 == 0){
-			clearInterval(esconder);
-			domElement.style.display = "flex";
-		}else{
-			height2 --;
-			domElement.style.height = height2 + "%";
-			if (height2 == 40){
-			for (let i = 0; i < arrElements2.length; i++)
-				arrElements2[i].style.display = "none"
-			}
-		}
-					
-	}
-
-
-
 }
 
 
