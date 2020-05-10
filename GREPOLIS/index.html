@@ -28,16 +28,29 @@
 <td style = "color : green;"></td>
 </tr>
 </table>
-
+<table>
+<tr id = "nombres">
+<th>piedra</th>
+<th>madera</th>
+<th>plata</th>
+<th>favor</th>
+</tr>
+<tr id = "recursos">
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</table>
 
 
 <article id = "buttons" style = "width: 70%;">
-	<button onclick= "sumtropas(ciudad, new tropas(1,0,0,0,0,0))">hondero</button>
-	<button onclick= "sumtropas(ciudad, new tropas(0,1,0,0,0,0))">lancero</button>
-	<button onclick= "sumtropas(ciudad, new tropas(0,0,1,0,0,0))">hoplita</button>
-	<button onclick= "sumtropas(ciudad, new tropas(0,0,0,1,0,0))">monje</button>
-	<button onclick= "sumtropas(ciudad, new tropas(0,0,0,0,1,0))">arquero</button>
-	<button onclick= "sumtropas(ciudad, new tropas(0,0,0,0,0,1))">escudero</button>
+	<button onclick= "addtropa(0,10)">hondero</button>
+	<button onclick= "addtropa(1,10)">lancero</button>
+	<button onclick= "addtropa(2,10)">hoplita</button>
+	<button onclick= "addtropa(3,10)">monje</button>
+	<button onclick= "addtropa(4,10)">arquero</button>
+	<button onclick= "addtropa(5,10)">escudero</button>
 	<button onclick= "atacar(ciudad.tropas, ciudad2)">atacar</button>
 </article>
 <h3>ENEMIGO</h3>
