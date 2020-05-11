@@ -1,11 +1,17 @@
 const dom = document.querySelectorAll("#tropas>td");
+const domedi = document.querySelectorAll("#edificios>td");
 const domrec = document.querySelectorAll("#recursos>td");
 const dom2 = document.querySelectorAll("#tropas2>td");
+
 const Arraytropas = [new hondero(), new lancero(), new hoplita(), new monje(), new arquero(), new escudero()]
-const ciudad = new Ciudad(new tropas(0,0,0,0,0,0))
+
+const Arrayedificios = [new minapiedra(), new minamadera(), new minaplata(), new templo(), new almacen(), new cuartel(), new astillero(), new muro(), new academia(), new ayuntamiento()]
+
+const ciudad = new Ciudad(new tropas(0,0,0,0,0,0), new edificios(1,1,1,0,1,0,0,1,0,1))
 const ciudad2 = new Ciudad(new tropas(0,0,0,100,10,0))
 console.log(ciudad)
-console.log(ciudad.tropas)
+console.log(ciudad.edificios)
+console.log(Arrayedificios)
 
 let domActualize = setInterval(actualize, 100)
 function actualize(){
@@ -21,9 +27,27 @@ function actualize(){
 	dom[i].innerHTML = "<b>" + defcuartel(ciudad.tropas) + "<b>";
 	dom2[i].innerHTML = "<b>" + defcuartel(ciudad2.tropas) + "<b>";
 	
+
+	
+	
+	
+
 	for (let k = 0 ; k < ciudad.recursos.length ; k++)
 		domrec[k].innerHTML = ciudad.recursos[k];
+
+	for (let k = 0 ; k < ciudad.edificios.length ; k++)
+		domedi[k].innerHTML = ciudad.edificios[k];
 }
+
+const generadorpiedra = setInterval(generarpiedra, ciudad.generar[0]);
+const generadormadera = setInterval(generarmadera, ciudad.generar[1]);
+const generadorplata =  setInterval(generarplata,  ciudad.generar[2]);
+const generadorfavor =  setInterval(generarfavor,  ciudad.generar[3]);
+
+function generarpiedra(){ ciudad.recursos[0] += ciudad.edificios[0];}
+function generarmadera(){ ciudad.recursos[1] += ciudad.edificios[1];}
+function generarplata(){  ciudad.recursos[2] += ciudad.edificios[2];}
+function generarfavor(){  ciudad.recursos[3] += ciudad.edificios[3];}
 
 
 
@@ -92,22 +116,59 @@ function canttropas(tropas){
 }
 
 
-function Ciudad(tropas){
+function Ciudad(tropas, edificios){
 this.tropas = tropas;
-this.recursos = [100,100,100,100];
+this.edificios = edificios;
+this.recursos = [100,100,100,0];
+this.generar = [1000,1000,1000,10000];
+}
+
+function subiredificio(numero){
+	let posible = true;
+	let coste = [];
+	for (let i = 0 ; i < ciudad.recursos.length; i++){
+		coste[i] = Math.ceil(Arrayedificios[numero].coste[i] * Arrayedificios[numero].puntos * ciudad.edificios[numero]);
+		if (coste[i] > ciudad.recursos[i])
+			posible = false;
+	}
+	if (posible){
+		ciudad.edificios[numero] ++;
+		for (let i = 0 ; i < ciudad.recursos.length; i++){
+			ciudad.recursos[i] -= coste[i]
+		}
+	}
+}
+
+
+function entrarayuntamiento(){
+document.querySelector("#entrarayuntamiento").style.display = "block";
+}
+function salirayuntamiento(){
+document.querySelector("#entrarayuntamiento").style.display = "none";
 }
 
 
 
-function edificio(){
-
-
-
+function edificios(mp,mm,mpl,t,al,c,a,m,ac,ay){
+return [mp,mm,mpl,t,al,c,a,m,ac,ay];
 }
 
 
+function minapiedra(){  return new edificio(30,  1,   1.1, 1.1)}
+function minamadera(){  return new edificio(30,  1.1, 1,   1.1)}
+function minaplata(){   return new edificio(30,  1.1, 1.1, 1)}
+function templo(){      return new edificio(100, 1.5, 1,   1.2)}
+function almacen(){     return new edificio(50,  1,   1,   1)}
+function cuartel(){     return new edificio(70,  1,   1.2, 1)}
+function astillero(){   return new edificio(70,  1.5, 1.1, 1)}
+function muro(){        return new edificio(80,  1.2, 1.1, 1)}
+function academia(){    return new edificio(150, 1.5, 1.5, 1.5)}
+function ayuntamiento(){return new edificio(120, 1.5, 1,   1.5)}
 
-
+function edificio(puntos, piedra, madera, plata){
+this.puntos = puntos;
+this.coste = [piedra, madera, plata, 0];
+}
 
 function tropas(num1,num2,num3,num4,num5,num6){
 return [num1,num2,num3,num4,num5,num6];
