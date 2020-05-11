@@ -1,10 +1,12 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Page Title</title>
 </head>
 <body>
-<section style = "margin: 50px ;position: absolute; height: 100px; width: 600px; background-color: rgb(200,190,190);border: 4px solid black; display: none" id = "entrarayuntamiento">
+
+
+<section style = "margin-left: 500px ;margin-top: 200px ;position: absolute; height: 100px; width: 500px; background-color: rgb(200,190,190);border: 4px solid black; display: none" id = "entrarayuntamiento">
 <button onclick = "subiredificio(0)"><b>Cantera</b></button>
 <button onclick = "subiredificio(1)"><b>Aserradero</b></button>
 <button onclick = "subiredificio(2)"><b>Mina</b></button>
@@ -16,8 +18,26 @@
 <button onclick = "subiredificio(8)"><b>Academia</b></button>
 <button onclick = "subiredificio(9)"><b>Ayuntamiento</b></button>
 <button onclick = "salirayuntamiento()"><b>X</b></button>
-
+<div id = "statics"style = "position: absolute; height: 100px; width: 500px; background-color: rgb(200,190,190);border: 4px solid black; z-index : 100;">
+<p id = "precio" ></p>
+<p id = "statics"></p> 
+</div>
 </section>
+
+<section style = "margin-left: 500px ;margin-top: 200px ;position: absolute; height: 100px; width: 500px; background-color: rgb(200,190,190);border: 4px solid black; display: none" id = "entrarcuartel">
+<button onclick= "addtropa(0,10)">hondero</button>
+<button onclick= "addtropa(1,10)">lancero</button>
+<button onclick= "addtropa(2,10)">hoplita</button>
+<button onclick= "addtropa(3,10)">monje</button>
+<button onclick= "addtropa(4,10)">arquero</button>
+<button onclick= "addtropa(5,10)">escudero</button>
+<button onclick = "salircuartel()"><b>X</b></button>
+<div id = "statics"style = "position: absolute; height: 100px; width: 500px; background-color: rgb(200,190,190);border: 4px solid black; z-index : 100;">
+<p id = "precio" ></p> <button>10</button><button>Max</button><button>Entrenar</button>
+<p id = "statics"></p> 
+</div>
+</section>
+
 <h3>CIUDAD</h3>
 <table>
 <tr id = "nombres">
@@ -84,12 +104,7 @@
 
 
 <article id = "buttons" style = "width: 70%;">
-	<button onclick= "addtropa(0,10)">hondero</button>
-	<button onclick= "addtropa(1,10)">lancero</button>
-	<button onclick= "addtropa(2,10)">hoplita</button>
-	<button onclick= "addtropa(3,10)">monje</button>
-	<button onclick= "addtropa(4,10)">arquero</button>
-	<button onclick= "addtropa(5,10)">escudero</button>
+
 	<button onclick= "atacar(ciudad.tropas, ciudad2)">atacar</button>
 </article>
 <h3>ENEMIGO</h3>
