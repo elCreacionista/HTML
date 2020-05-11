@@ -6,7 +6,8 @@
 <body>
 
 
-<section style = "margin-left: 500px ;margin-top: 200px ;position: absolute; height: 100px; width: 500px; background-color: rgb(200,190,190);border: 4px solid black; display: none" id = "entrarayuntamiento">
+<section style = "margin-left: 30% ;margin-top: 200px ;position: absolute; height: 100px; width: 500px; background-color: rgb(200,190,190);border: 4px solid black; z-index : 100; display: none" id = "entrarayuntamiento">
+<section style = "height: 100%;">
 <button onclick = "seleccionaredificio(0)"><b>Cantera</b></button>
 <button onclick = "seleccionaredificio(1)"><b>Aserradero</b></button>
 <button onclick = "seleccionaredificio(2)"><b>Mina</b></button>
@@ -18,7 +19,8 @@
 <button onclick = "seleccionaredificio(8)"><b>Academia</b></button>
 <button onclick = "seleccionaredificio(9)"><b>Ayuntamiento</b></button>
 <button onclick = "salirayuntamiento()"><b>X</b></button>
-<div id = "statics"style = "position: absolute; height: 100px; width: 500px; background-color: rgb(200,190,190);border: 4px solid black; z-index : 100;">
+</section>
+<div id = "statics"style = "position: relative; height: 100px; width: 500px; background-color: rgb(200,190,190);border: 4px solid black; ">
 <p id = "precio" ></p>
 <button onclick = "subiredificio()">Subir</button>
 <table>
@@ -27,7 +29,8 @@
 </div>
 </section>
 
-<section style = "margin-left: 500px ;margin-top: 200px ;position: absolute; height: 100px; width: 500px; background-color: rgb(200,190,190);border: 4px solid black; display: none" id = "entrarcuartel">
+<section style = "margin-left: 30% ;margin-top: 200px; position: absolute; height: 100px; width: 500px; background-color: rgb(200,190,190);border: 4px solid black; z-index : 100; display: none" id = "entrarcuartel">
+<section style = "height: 100%;">
 <button onclick= "addtropa(0,10)">hondero</button>
 <button onclick= "addtropa(1,10)">lancero</button>
 <button onclick= "addtropa(2,10)">hoplita</button>
@@ -35,9 +38,14 @@
 <button onclick= "addtropa(4,10)">arquero</button>
 <button onclick= "addtropa(5,10)">escudero</button>
 <button onclick = "salircuartel()"><b>X</b></button>
-<div id = "statics"style = "position: absolute; height: 100px; width: 500px; background-color: rgb(200,190,190);border: 4px solid black; z-index : 100;">
-<p id = "precio" ></p> <button>10</button><button>Max</button><button>Entrenar</button>
-<p id = "statics"></p> 
+</section>
+<div id = "statics"style = "position: relative; height: 150px; width: 500px; background-color: rgb(200,190,190);border: 4px solid black; display: flex;">
+<div style= "display: flex; flex-direction: row; flex-wrap: wrap; align-items: flex-start; justify-content: space-around; height: 100%; width: 50%;">
+	<input id="numerotropas" type="range" min="0" max="10"></input>
+	<p id = "precio" >piedra 20 madera 220 <br/> plata 2220 favor 2220 </p> <p>xd</p> 
+	<button>Entrenar</button>
+</div>
+<p id = "statics"> hquehqklweh qlhewklq ewkqb ek b qkleb qkhbew kqbewklbq</p> 
 </div>
 </section>
 
