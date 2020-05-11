@@ -44,10 +44,19 @@ const generadormadera = setInterval(generarmadera, ciudad.generar[1]);
 const generadorplata =  setInterval(generarplata,  ciudad.generar[2]);
 const generadorfavor =  setInterval(generarfavor,  ciudad.generar[3]);
 
-function generarpiedra(){ ciudad.recursos[0] += ciudad.edificios[0];}
-function generarmadera(){ ciudad.recursos[1] += ciudad.edificios[1];}
-function generarplata(){  ciudad.recursos[2] += ciudad.edificios[2];}
-function generarfavor(){  ciudad.recursos[3] += ciudad.edificios[3];}
+function generarpiedra(){ 
+	ciudad.recursos[0] += ciudad.edificios[0];
+	if (ciudad.recursos[0] > ciudad.almacenamiento * ciudad.edificios[4])
+		ciudad.recursos[0] = ciudad.almacenamiento * ciudad.edificios[4]}
+function generarmadera(){ ciudad.recursos[1] += ciudad.edificios[1];
+	if (ciudad.recursos[1] > ciudad.almacenamiento * ciudad.edificios[4])
+		ciudad.recursos[1] = ciudad.almacenamiento * ciudad.edificios[4]}
+function generarplata(){  ciudad.recursos[2] += ciudad.edificios[2];
+	if (ciudad.recursos[2] > ciudad.almacenamiento * ciudad.edificios[4])
+		ciudad.recursos[2] = ciudad.almacenamiento * ciudad.edificios[4]}
+function generarfavor(){  ciudad.recursos[3] += ciudad.edificios[3];
+	if (ciudad.recursos[3] > 100)
+		ciudad.recursos[3] = 100;}
 
 
 
@@ -121,19 +130,24 @@ this.tropas = tropas;
 this.edificios = edificios;
 this.recursos = [100,100,100,0];
 this.generar = [1000,1000,1000,10000];
+this.almacenamiento = 333;
 }
 
 function subiredificio(numero){
 	let posible = true;
 	let coste = [];
+	let shit = document.querySelector("#precio")
+	shit.innerHTML = ""
 	for (let i = 0 ; i < ciudad.recursos.length; i++){
-		coste[i] = Math.ceil(Arrayedificios[numero].coste[i] * Arrayedificios[numero].puntos * ciudad.edificios[numero]);
+		coste[i] = Math.ceil((Arrayedificios[numero].coste[i] * Arrayedificios[numero].puntos) * ciudad.edificios[numero]);
+			shit.innerHTML += "coste -->" +  coste[i];
 		if (coste[i] > ciudad.recursos[i])
 			posible = false;
 	}
 	if (posible){
 		ciudad.edificios[numero] ++;
 		for (let i = 0 ; i < ciudad.recursos.length; i++){
+
 			ciudad.recursos[i] -= coste[i]
 		}
 	}
@@ -147,6 +161,12 @@ function salirayuntamiento(){
 document.querySelector("#entrarayuntamiento").style.display = "none";
 }
 
+function entrarcuartel(){
+document.querySelector("#entrarcuartel").style.display = "block";
+}
+function salircuartel(){
+document.querySelector("#entrarcuartel").style.display = "none";
+}
 
 
 function edificios(mp,mm,mpl,t,al,c,a,m,ac,ay){
