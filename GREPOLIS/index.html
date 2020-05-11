@@ -4,8 +4,47 @@
 <title>Page Title</title>
 </head>
 <body>
+<section style = "margin: 50px ;position: absolute; height: 100px; width: 600px; background-color: rgb(200,190,190);border: 4px solid black; display: none" id = "entrarayuntamiento">
+<button onclick = "subiredificio(0)"><b>Cantera</b></button>
+<button onclick = "subiredificio(1)"><b>Aserradero</b></button>
+<button onclick = "subiredificio(2)"><b>Mina</b></button>
+<button onclick = "subiredificio(3)"><b>templo</b></button>
+<button onclick = "subiredificio(4)"><b>Almacen</b></button>
+<button onclick = "subiredificio(5)"><b>Cuartel</b></button>
+<button onclick = "subiredificio(6)"><b>Astillero</b></button>
+<button onclick = "subiredificio(7)"><b>Muro</b></button>
+<button onclick = "subiredificio(8)"><b>Academia</b></button>
+<button onclick = "subiredificio(9)"><b>Ayuntamiento</b></button>
+<button onclick = "salirayuntamiento()"><b>X</b></button>
 
+</section>
 <h3>CIUDAD</h3>
+<table>
+<tr id = "nombres">
+<th><button onclick = "ciudad.edificios[0]++"><b>Cantera</b></button></th>
+<th><button onclick = "ciudad.edificios[1]++"><b>Aserradero</b></button></th>
+<th><button onclick = "ciudad.edificios[2]++"><b>Mina</b></button></th>
+<th><button onclick = "ciudad.edificios[3]++"><b>templo</b></button></th>
+<th><button onclick = "ciudad.edificios[4]++"><b>Almacen</b></button></th>
+<th><button onclick = "entrarcuartel()"><b>Cuartel</b></button></th>
+<th><button onclick = "ciudad.edificios[6]++"><b>Astillero</b></button></th>
+<th><button onclick = "ciudad.edificios[7]++"><b>Muro</b></button></th>
+<th><button onclick = "ciudad.edificios[8]++"><b>Academia</b></button></th>
+<th><button onclick = "entrarayuntamiento()"><b>Ayuntamiento</b></button></th>
+</tr>
+<tr id = "edificios">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
 <table>
 <tr id = "nombres">
 <th>hondero</th>
@@ -76,6 +115,7 @@
 <td style = "color : green;"></td>
 </tr>
 </table>
+
 
 <script src ="js.js">
 </script>
