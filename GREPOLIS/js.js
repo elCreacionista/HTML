@@ -3,7 +3,7 @@ const domrec = document.querySelectorAll("#recursos>td");
 const dom2 = document.querySelectorAll("#tropas2>td");
 const Arraytropas = [new hondero(), new lancero(), new hoplita(), new monje(), new arquero(), new escudero()]
 const ciudad = new Ciudad(new tropas(0,0,0,0,0,0))
-const ciudad2 = new Ciudad(new tropas(0,0,0,100,0,0))
+const ciudad2 = new Ciudad(new tropas(0,0,0,100,10,0))
 console.log(ciudad)
 console.log(ciudad.tropas)
 
@@ -12,21 +12,15 @@ function actualize(){
 	let i = 0;
 	while (i < ciudad.tropas.length){
 		dom[i].innerHTML = ciudad.tropas[i];
+		dom2[i].innerHTML = ciudad2.tropas[i];
 		i++;
 	}
 	dom[i].innerHTML = "<b>" + dmgcuartel(ciudad.tropas) + "<b>";
+	dom2[i].innerHTML = "<b>" + dmgcuartel(ciudad2.tropas) + "<b>";
 	i++;
 	dom[i].innerHTML = "<b>" + defcuartel(ciudad.tropas) + "<b>";
+	dom2[i].innerHTML = "<b>" + defcuartel(ciudad2.tropas) + "<b>";
 	
-	let j = 0;
-	while (j < ciudad2.tropas.length){
-		dom2[j].innerHTML = ciudad2.tropas[j];
-		j++;
-	}
-	dom2[j].innerHTML = "<b>" + dmgcuartel(ciudad2.tropas) + "<b>";
-	j++;
-	dom2[j].innerHTML = "<b>" + defcuartel(ciudad2.tropas) + "<b>";
-
 	for (let k = 0 ; k < ciudad.recursos.length ; k++)
 		domrec[k].innerHTML = ciudad.recursos[k];
 }
@@ -75,7 +69,7 @@ function addtropa(num, cant){
 	let coste = [];
 	for (let i = 0 ; i < ciudad.recursos.length; i++){
 		coste[i] = Arraytropas[num].coste[i] * cant;
-		if (coste > ciudad.recursos[i])
+		if (coste[i] > ciudad.recursos[i])
 			posible = false;
 	}
 	if (posible){
@@ -100,8 +94,20 @@ function canttropas(tropas){
 
 function Ciudad(tropas){
 this.tropas = tropas;
-this.recursos = [1000,1000,1000,100];
+this.recursos = [100,100,100,100];
 }
+
+
+
+function edificio(){
+
+
+
+}
+
+
+
+
 
 function tropas(num1,num2,num3,num4,num5,num6){
 return [num1,num2,num3,num4,num5,num6];
