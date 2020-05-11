@@ -12,8 +12,12 @@ const Stringedificios = ["minapiedra", "minamadera", "minaplata", "templo", "alm
 const Stringtropas = ["hondero", "lancero", "hoplita", "monje", "arquero", "escudero"]
 const Stringrecursos = ["piedra", "madera", "plata", "favor"]
 
-const ciudad = new Ciudad(new tropas(0,0,0,0,0,0), new edificios(1,1,1,0,1,0,0,1,0,1))
-const ciudad2 = new Ciudad(new tropas(0,0,0,100,10,0))
+const ciudad = new Ciudad(new tropas(0,0,0,0,0,0),     new edificios(1,1,1,0,1,0,0,1,0,1))
+const ciudad2 = new Ciudad(new tropas(0,0,0,100,10,0), new edificios(1,1,1,1,1,1,1,1,1,1))
+
+const mapa = null;
+
+
 console.log(ciudad)
 console.log(ciudad.edificios)
 console.log(Arrayedificios)
@@ -37,6 +41,10 @@ function actualize(){
 
 	for (let k = 0 ; k < ciudad.edificios.length ; k++)
 		domedi[k].innerHTML = ciudad.edificios[k];
+
+
+	if (ciudad.edificioseleccion != "nothing")
+		seleccionaredificio(getedificio(ciudad.edificioseleccion));
 }
 
 const generadorpiedra = setInterval(generarpiedra, ciudad.generar[0]);
