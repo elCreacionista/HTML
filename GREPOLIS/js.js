@@ -5,7 +5,12 @@ const dom2 = document.querySelectorAll("#tropas2>td");
 
 const Arraytropas = [new hondero(), new lancero(), new hoplita(), new monje(), new arquero(), new escudero()]
 
+
 const Arrayedificios = [new minapiedra(), new minamadera(), new minaplata(), new templo(), new almacen(), new cuartel(), new astillero(), new muro(), new academia(), new ayuntamiento()]
+
+const Stringedificios = ["minapiedra", "minamadera", "minaplata", "templo", "almacen", "cuartel", "astillero", "muro", "academia", "ayuntamiento"]
+const Stringtropas = ["hondero", "lancero", "hoplita", "monje", "arquero", "escudero"]
+const Stringrecursos = ["piedra", "madera", "plata", "favor"]
 
 const ciudad = new Ciudad(new tropas(0,0,0,0,0,0), new edificios(1,1,1,0,1,0,0,1,0,1))
 const ciudad2 = new Ciudad(new tropas(0,0,0,100,10,0))
@@ -27,11 +32,6 @@ function actualize(){
 	dom[i].innerHTML = "<b>" + defcuartel(ciudad.tropas) + "<b>";
 	dom2[i].innerHTML = "<b>" + defcuartel(ciudad2.tropas) + "<b>";
 	
-
-	
-	
-	
-
 	for (let k = 0 ; k < ciudad.recursos.length ; k++)
 		domrec[k].innerHTML = ciudad.recursos[k];
 
@@ -131,16 +131,32 @@ this.edificios = edificios;
 this.recursos = [100,100,100,0];
 this.generar = [1000,1000,1000,10000];
 this.almacenamiento = 333;
+this.tropaseleccion = "nothing";
+this.edificioseleccion = "nothing";
 }
 
-function subiredificio(numero){
-	let posible = true;
+function seleccionaredificio(numero){
+	ciudad.edificioseleccion = Stringedificios[numero];
 	let coste = [];
+	let posible = true;
 	let shit = document.querySelector("#precio")
 	shit.innerHTML = ""
 	for (let i = 0 ; i < ciudad.recursos.length; i++){
 		coste[i] = Math.ceil((Arrayedificios[numero].coste[i] * Arrayedificios[numero].puntos) * ciudad.edificios[numero]);
-			shit.innerHTML += "coste -->" +  coste[i];
+
+		shit.innerHTML += Stringrecursos[i] + " " +  coste[i] + "  ";
+		if (coste[i] > ciudad.recursos[i])
+			posible = false;
+	}
+	if (posible) shit.style.color = "blue"; else shit.style.color = "red";
+}
+
+function subiredificio(){
+	numero = getedificio(ciudad.edificioseleccion);
+	let posible = true;
+	let coste = [];
+	for (let i = 0 ; i < ciudad.recursos.length; i++){
+		coste[i] = Math.ceil((Arrayedificios[numero].coste[i] * Arrayedificios[numero].puntos) * ciudad.edificios[numero]);
 		if (coste[i] > ciudad.recursos[i])
 			posible = false;
 	}
@@ -151,6 +167,7 @@ function subiredificio(numero){
 			ciudad.recursos[i] -= coste[i]
 		}
 	}
+	seleccionaredificio(numero);
 }
 
 
@@ -188,6 +205,11 @@ function ayuntamiento(){return new edificio(120, 1.5, 1,   1.5)}
 function edificio(puntos, piedra, madera, plata){
 this.puntos = puntos;
 this.coste = [piedra, madera, plata, 0];
+}
+function getedificio(string){
+	for (let i = 0; i < Stringedificios.length; i++)
+		if (Stringedificios[i] == string)
+			return i;
 }
 
 function tropas(num1,num2,num3,num4,num5,num6){
