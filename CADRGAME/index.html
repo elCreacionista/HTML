@@ -5,74 +5,140 @@
  <link rel="stylesheet" href="css.css">
 </head>
 <body>
-
-
-
+	<div id = "actual">
+		<h2>What is Lorem Ipsum?</h2>
+		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+	</div>
 	<div id= "edificios">
+
 	<div id = "ciudad" class = "card">
+
 <img src="https://img.icons8.com/officel/80/000000/bungalow.png" class = "image">
-		<button class = "buton">ciudad</button>
+		<button class = "buton" onclick = "enterciudad()">ciudad</button>
+		<p>puntos</p>
+	</div>
+	<div id = "mapa" class = "card">
+<img src="https://img.icons8.com/color/80/000000/map.png" class = "image">
+		<button class = "buton" onclick = "mostrarmapa()">mapa</button>
 	</div>
 	<div id = "cartas" class = "card">
 <img src="https://img.icons8.com/officel/80/000000/doctor-fate-helmet.png" class = "image">
 		<button class = "buton">cartas</button>
+		<p>nivel</p>
 	</div>
 
 	<div id = "mision1" class = "card">
 <img src="https://img.icons8.com/color/80/000000/insignia-1-stars--v1.png" class = "image">
 		<button class = "buton">mision</button>
+		<p>nivel</p>
 	</div>
 	<div id = "mision2" class = "card">
 <img src="https://img.icons8.com/color/80/000000/insignia-2.png" class = "image">
 		<button class = "buton">mision</button>
+		<p>nivel</p>
 	</div>
 	<div id = "mision3" class = "card">
 <img src="https://img.icons8.com/color/80/000000/insignia-3.png" class = "image">
 		<button class = "buton">mision</button>
+		<p>nivel</p>
 	</div>
 	<div id = "recursos" class = "card">
 <img src="https://img.icons8.com/color/80/000000/warehouse.png" class = "image">
 		<button class = "buton">recursos</button>
-	</div>
-	<div id = "mapa" class = "card">
-<img src="https://img.icons8.com/color/80/000000/map.png" class = "image">
-		<button class = "buton">mapa</button>
+		<p>nivel</p>
 	</div>
 
 
 
 		<div id = "ayuntamiento" class = "card">
 <img src="https://img.icons8.com/officel/80/000000/city-hall.png" class = "image">
-			<button class = "buton">ayuntamiento</button>
+			<button class = "buton" onclick = "enterAyuntamiento()">ayuntamiento</button>
+		<p>nivel</p>
 		</div>
 		<div id = "cuartel" class = "card">
 <img src="https://img.icons8.com/doodle/80/000000/armored-helmet.png" class = "image">
 			<button class = "buton">cuartel</button>
+		<p>nivel</p>
 		</div>
 		<div id = "coliseo" class = "card">
 <img src="https://img.icons8.com/color/80/000000/coliseum.png" class = "image">
 			<button class = "buton">coliseo</button>
+		<p>nivel</p>
 		</div>
 		<div id = "tienda" class = "card">
 <img src="https://img.icons8.com/fluent/80/000000/shop.png" class = "image">
 			<button class = "buton">tienda</button>
+		<p>nivel</p>
 		</div>
 		<div id = "academia" class = "card">
 <img src="https://img.icons8.com/color/80/000000/school-building.png" class = "image">
 			<button class = "buton">academia</button>
+		<p>nivel</p>
 		</div>
 		<div id = "muro" class = "card">
 <img src="https://img.icons8.com/color/80/000000/defensive-wood-wall.png" class = "image">
 			<button class = "buton">muro</button>
+		<p>nivel</p>
 		</div>
 		<div id = "granja" class = "card">
 <img src="https://img.icons8.com/plasticine/80/000000/farm.png" class = "image">
 			<button class = "buton">granja</button>
+		<p>nivel</p>
+		</div>
+
+
+
+	<div class = "card" id = "subirayuntamiento">
+	<div class = "carta">
+		<div class = "front">
+<img src="https://img.icons8.com/officel/80/000000/city-hall.png" class = "image">
+			<button class = "buton" onclick = "subirAyuntamiento()">ayuntamiento</button>
+		<p>nivel</p>
+		</div>
+		<div class = "back">
+			<p id = "informacion">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+			<p id = "coste">100</p>
 		</div>
 	</div>
-	<div id = "tropas">
-		
-
 	</div>
+
+		<div id = "subircuartel" class = "card">
+<img src="https://img.icons8.com/doodle/80/000000/armored-helmet.png" class = "image">
+			<button class = "buton">cuartel</button>
+		<p>nivel</p>
+		</div>
+
+		<div id = "subircoliseo" class = "card">
+<img src="https://img.icons8.com/color/80/000000/coliseum.png" class = "image">
+			<button class = "buton">coliseo</button>
+		<p>nivel</p>
+		</div>
+		<div id = "subirtienda" class = "card">
+<img src="https://img.icons8.com/fluent/80/000000/shop.png" class = "image">
+			<button class = "buton">tienda</button>
+		<p>nivel</p>
+		</div>
+		<div id = "subiracademia" class = "card">
+<img src="https://img.icons8.com/color/80/000000/school-building.png" class = "image">
+			<button class = "buton">academia</button>
+		<p>nivel</p>
+		</div>
+		<div id = "subirmuro" class = "card">
+<img src="https://img.icons8.com/color/80/000000/defensive-wood-wall.png" class = "image">
+			<button class = "buton">muro</button>
+		<p>nivel</p>
+		</div>
+		<div id = "subirgranja" class = "card">
+<img src="https://img.icons8.com/plasticine/80/000000/farm.png" class = "image">
+			<button class = "buton">granja</button>
+		<p>nivel</p>
+		</div>
+	</div>
+
+
+	
+	<div id = "tropas">
+	</div>
+ <script src="js.js"></script> 
 </body>
 </html> 
