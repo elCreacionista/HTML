@@ -15,7 +15,20 @@ border: none;
 font: inherit;
 outline: inherit;
 }
-
+#actual {
+width: 100%;
+margin-top: 5%;
+text-align: center;
+color: white;
+}
+#actual h2{
+font-size: 2.5em;
+}
+#actual p{
+margin-left: 15%;
+width: 70%;
+font-size: 1em;
+}
 
 #edificios{
 margin-top: 10%;
@@ -23,7 +36,7 @@ margin-left: 5%;
 height: 100%;
 width: 90%;
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
 flex-wrap: wrap;
 }
 
@@ -41,6 +54,34 @@ transform: translateY(-15px);
 height: 260px;
 width: 170px;
 box-shadow: 0 10px 20px;
+}
+
+
+.carta{
+background-color: red;
+transform-style: preserve-3d;
+transition: all .5s ease;
+height: 100%;
+width: 100%;
+}
+.carta:hover{
+transform: rotateY(180deg);
+}
+.front{
+position: absolute;
+height: 100%;
+width: 100%;
+backface-visibility: hidden;
+background-color: rgb(200,200,240);
+}
+
+.back{
+position: absolute;
+height: 100%;
+width: 100%;
+backface-visibility: hidden;
+background-color: rgb(200,200,240);
+transform: rotateY(180deg);
 }
 
 .buton{
