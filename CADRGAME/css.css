@@ -1,0 +1,59 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body{
+
+
+background-color: rgb(80,20,20);
+}
+.buton{
+background: none;
+color: inherit;
+border: none;
+font: inherit;
+outline: inherit;
+}
+
+
+#edificios{
+margin-top: 10%;
+margin-left: 5%;
+height: 100%;
+width: 90%;
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+
+.card {
+margin-top: 10px;
+margin-left: 10px;
+height: 220px;
+width: 150px;
+background-color: rgb(200,200,240);
+}
+
+.card:hover {
+transform: translateY(-15px);
+
+height: 260px;
+width: 170px;
+box-shadow: 0 10px 20px;
+}
+
+.buton{
+height: 50%;
+width: 100%;
+font-size: 1.2em;
+}
+.buton:hover{
+text-shadow: 3px 3px 5px rgb(20,20,20);
+}
+
+.image{
+margin-left: 10%;
+height: 40%;
+width: 80%;
+}
