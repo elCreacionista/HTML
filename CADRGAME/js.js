@@ -15,6 +15,7 @@ const muro = document.querySelector("#muro");
 const granja = document.querySelector("#granja");
 
 const subirayuntamiento = document.querySelector("#subirayuntamiento");
+const subirrecursos = document.querySelector("#subirrecursos");
 const subircuartel = document.querySelector("#subircuartel");
 const subircoliseo = document.querySelector("#subircoliseo");
 const subirtienda = document.querySelector("#subirtienda");
@@ -22,36 +23,67 @@ const subiracademia = document.querySelector("#subiracademia");
 const subirmuro = document.querySelector("#subirmuro");
 const subirgranja = document.querySelector("#subirgranja");
 
-const interval = setInterval(actualizarNiveles, 1000);
+const pmme = [0,0,0,0]
+const recursospmme = document.querySelector("#pmme");
 
 function StringLevel(nivel){
-if (nivel == 0) return "nivel  0";
+if (nivel <= 0) return "nivel  0";
 return "nivel  " + nivel;
 }
+function actualizarRecursos(){
 
-let habilidades = {Nrecursos : 14, Ncoliseo : 0, Ntienda : 0,
+for (let i = 0; i < produccion.length; i++){
+produccion[i] = habilidades.Nrecursos;
+}
+
+
+pmme[0] += produccion[0];
+recursospmme.childNodes[0].innerHTML = " piedra: " + pmme[0];
+pmme[1] += produccion[1];
+recursospmme.childNodes[1].innerHTML = " madera: " + pmme[1];
+pmme[2] += produccion[2];
+recursospmme.childNodes[2].innerHTML = " monedas: " + pmme[2];
+pmme[3] += produccion[3];
+recursospmme.childNodes[3].innerHTML = " energia: " + pmme[3];
+}
+
+
+let habilidades = {Nrecursos : 1, Ncoliseo : 0, Ntienda : 0,
  Ncuartel : 0, Nmuro : 0, Ngranja : 0, Nayuntamiento : 1, Nacademia : 0,
 Nmision1 : 1, Nmision2 : 0, Nmision3 : 0};
+let produccion = [1,1,1,1]
+
+const intervalEdificios = setInterval(actualizarNiveles, 1000);
+const intervalRecursos = setInterval(actualizarRecursos, 5000);
 
 
 //  Inicio  //
 
+
+recursos.style.display = "none";
+cuartel.style.display = "none";
+tienda.style.display = "none";
+coliseo.style.display = "none";
+ayuntamiento.style.display = "none";
+academia.style.display = "none";
+muro.style.display = "none";
+granja.style.display = "none";
 mostrarmapa();
-mostrarsubirniveles("none")
+actualizarNiveles();
 mision1.style.display = "none";
 mision2.style.display = "none";
 mision3.style.display = "none";
+mostrarsubirniveles("none");
 
 
-actualizarNiveles();
 
 
 function mostrarsubirniveles(variable){
-
 subirtienda.style.display = variable;
 subircuartel.style.display = variable;
 subircoliseo.style.display = variable;
 subirayuntamiento.style.display = variable;
+subirrecursos.style.display = variable;
 subiracademia.style.display = variable;
 subirmuro.style.display = variable;
 subirgranja.style.display = variable;
@@ -71,6 +103,15 @@ granja.childNodes[5].innerHTML = StringLevel(habilidades.Ngranja);
 mision1.childNodes[5].innerHTML = StringLevel(habilidades.Nmision1);
 mision2.childNodes[5].innerHTML = StringLevel(habilidades.Nmision2);
 mision3.childNodes[5].innerHTML = StringLevel(habilidades.Nmision3);
+
+subirayuntamiento.childNodes[1].childNodes[5].innerHTML = StringLevel(habilidades.Nayuntamiento);
+subirrecursos.childNodes[1].childNodes[5].innerHTML = StringLevel(habilidades.Nrecursos);
+subircuartel.childNodes[1].childNodes[5].innerHTML = StringLevel(habilidades.Ncuartel);
+subircoliseo.childNodes[1].childNodes[5].innerHTML = StringLevel(habilidades.Ncoliseo);
+subirtienda.childNodes[1].childNodes[5].innerHTML = StringLevel(habilidades.Ntienda);
+subiracademia.childNodes[1].childNodes[5].innerHTML = StringLevel(habilidades.Nacademia);
+subirmuro.childNodes[1].childNodes[5].innerHTML = StringLevel(habilidades.Nmuro);
+subirgranja.childNodes[1].childNodes[5].innerHTML = StringLevel(habilidades.Ngranja);
 }
 
 function showmisions(variable){
@@ -82,23 +123,31 @@ if (habilidades.Nmision3 > 0)
 mision3.style.display = variable;
 }
 
+function showedificios(variable){
+if (habilidades.Nrecursos > 0)
+	recursos.style.display = variable;
+if (habilidades.Ncuartel > 0)
+	cuartel.style.display = variable;
+if (habilidades.Ntienda > 0)
+	tienda.style.display = variable;
+if (habilidades.Ncoliseo > 0)
+	coliseo.style.display = variable;
+if (habilidades.Nayuntamiento > 0)
+	ayuntamiento.style.display = variable;
+if (habilidades.Nacademia > 0)
+	academia.style.display = variable;
+if (habilidades.Nmuro > 0)
+	muro.style.display = variable;
+if (habilidades.Ngranja > 0)
+	granja.style.display = variable;
+
+}
 function enterciudad(){
 actual.innerHTML = "CIUDAD";
 ciudad.style.display = "none";
 mapa.style.display = "block";
 recursos.style.display = "block";
-if (habilidades.Ncuartel > 0)
-	cuartel.style.display = "block";
-if (habilidades.Ncoliseo > 0)
-	coliseo.style.display = "block";
-if (habilidades.Nayuntamiento > 0)
-	ayuntamiento.style.display = "block";
-if (habilidades.Nacademia > 0)
-	academia.style.display = "block";
-if (habilidades.Nmuro > 0)
-	muro.style.display = "block";
-if (habilidades.Ngranja > 0)
-	granja.style.display = "block";
+showedificios("block")
 showmisions("none");
 mostrarsubirniveles("none");
 }
@@ -107,25 +156,50 @@ function enterAyuntamiento(){
 mostrarsubirniveles("block");
 mapa.style.display = "none";
 cartas.style.display = "none";
-ayuntamiento.style.display = "none";
+showedificios("none")
 ciudad.style.display = "block";
 }
+function salirAyuntamiento(){
+mostrarsubirniveles("none");
+mapa.style.display = "block";
+cartas.style.display = "block";
+ayuntamiento.style.display = "block";
+ciudad.style.display = "none";
 
+}
+
+function subirMuro(){
+habilidades.Nmuro++;
+}
+function subirAyuntamiento(){
+habilidades.NAyuntamiento++;
+}
+function subirCuartel(){
+habilidades.Ncuartel++;
+}
+function subirTienda(){
+habilidades.Ntienda++;
+}
+function subirColiseo(){
+habilidades.Ncoliseo++;
+}
+function subirAcademia(){
+habilidades.Nacademia++;
+}
+function subirGranja(){
+habilidades.Ngranja++;
+}
+function subirRecursos(){
+habilidades.Nrecursos++;
+}
 
 
 function mostrarmapa(){
 actual.innerHTML = "MAPA";
 ciudad.style.display = "block";
+mapa.style.display = "none";
 showmisions("block");
 
-tienda.style.display = "none";
-recursos.style.display = "none";
-mapa.style.display = "none";
-cuartel.style.display = "none";
-coliseo.style.display = "none";
-ayuntamiento.style.display = "none";
-academia.style.display = "none";
-muro.style.display = "none";
-granja.style.display = "none";
+showedificios("none")
 }
 
