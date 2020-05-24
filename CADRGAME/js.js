@@ -1,3 +1,8 @@
+
+
+//  escudo > distancia > espada >
+
+const tropas = document.querySelector("#tropas");
 const actual = document.querySelector("#actual h2");
 const ciudad = document.querySelector("#ciudad");
 const cartas = document.querySelector("#cartas");
@@ -37,8 +42,8 @@ let habilidades = {Nrecursos : 1, Ncoliseo : 0, Ntienda : 0,
  Ncuartel : 0, Nmuro : 0, Ngranja : 0, Nayuntamiento : 1, Nacademia : 0,
 Nmision1 : 1, Nmision2 : 0, Nmision3 : 0};
 
-const puntosedificios = {recursos : 20, coliseo : 50, tienda : 30,
- cuartel : 50, muro : 25, granja : 30, ayuntamiento : 60, academia : 75};
+const puntosedificios = {recursos : 10, tienda : 50, cuartel : 30, 
+muro : 25, granja : 30, ayuntamiento : 60, coliseo : 120, academia : 150};
 
 const pmme = [10000,0,0,0]
 let produccion = [1,1,1,1];
@@ -57,7 +62,7 @@ return "nivel  " + nivel;
 }
 function StringCoste(coste){
 if (coste <= 0) return "coste:  0";
-return "coste:  " + coste;
+return "coste:  " + Math.floor(coste);
 }
 
 function actualizar(){
@@ -130,10 +135,10 @@ muro.style.display = "none";
 granja.style.display = "none";
 mostrarmapa();
 actualizarNiveles();
-mision1.style.display = "none";
 mision2.style.display = "none";
 mision3.style.display = "none";
 mostrarsubirniveles("none");
+tropas.style.display = "none";
 
 
 
@@ -192,6 +197,7 @@ recursos.style.display = "block";
 showedificios("block")
 showmisions("none");
 mostrarsubirniveles("none");
+tropas.style.display = "none";
 }
 
 function enterAyuntamiento(){
@@ -201,7 +207,22 @@ mapa.style.display = "none";
 cartas.style.display = "none";
 showedificios("none")
 ciudad.style.display = "block";
+tropas.style.display = "none";
 }
+
+function enterCuartel(){
+actual.innerHTML = "CUARTEL";
+mostrarsubirniveles("none");
+mapa.style.display = "none";
+cartas.style.display = "none";
+showedificios("none")
+ciudad.style.display = "block";
+tropas.style.display = "flex";
+
+
+}
+
+
 function salirAyuntamiento(){
 mostrarsubirniveles("none");
 mapa.style.display = "block";
@@ -224,7 +245,7 @@ addhistory("muro",  costeactual + " piedras");
 
 
 function subirAyuntamiento(){
-let costeactual = puntosedificios.ayuntamiento * (habilidades.Nayuntamiento + 1) * reduccion;
+let costeactual = Math.floor(puntosedificios.ayuntamiento * (habilidades.Nayuntamiento + 1) * reduccion);
 if (pmme[0] >= costeactual){
 	habilidades.Nayuntamiento++;
 	pmme[0] -= costeactual;
@@ -232,7 +253,7 @@ addhistory("ayuntamiento", costeactual + " piedras");
 }
 }
 function subirCuartel(){
-let costeactual = puntosedificios.cuartel * (habilidades.Ncuartel + 1) * reduccion;
+let costeactual = Math.floor(puntosedificios.cuartel * (habilidades.Ncuartel + 1) * reduccion);
 if (pmme[0] >= costeactual){
 	habilidades.Ncuartel++;
 	pmme[0] -= costeactual;
@@ -240,7 +261,7 @@ addhistory("cuartel", costeactual + " piedras");
 }
 }
 function subirTienda(){
-let costeactual = puntosedificios.tienda * (habilidades.Ntienda + 1) * reduccion;
+let costeactual = Math.floor(puntosedificios.tienda * (habilidades.Ntienda + 1) * reduccion);
 if (pmme[0] >= costeactual){
 	habilidades.Ntienda++;
 	pmme[0] -= costeactual;
@@ -248,7 +269,7 @@ addhistory("tienda", costeactual + " piedras");
 }
 }
 function subirColiseo(){
-let costeactual = puntosedificios.coliseo * (habilidades.Ncoliseo + 1) * reduccion;
+let costeactual = Math.floor(puntosedificios.coliseo * (habilidades.Ncoliseo + 1) * reduccion);
 if (pmme[0] >= costeactual){
 	habilidades.Ncoliseo++;
 	pmme[0] -= costeactual;
@@ -256,7 +277,7 @@ addhistory("coliseo", costeactual + " piedras");
 }
 }
 function subirAcademia(){
-let costeactual = puntosedificios.academia * (habilidades.Nacademia + 1) * reduccion;
+let costeactual = Math.floor(puntosedificios.academia * (habilidades.Nacademia + 1) * reduccion);
 if (pmme[0] >= costeactual){
 	habilidades.Nacademia++;
 	pmme[0] -= costeactual;
@@ -264,7 +285,7 @@ addhistory("academia", costeactual + " piedras");
 }
 }
 function subirGranja(){
-let costeactual = puntosedificios.granja * (habilidades.Ngranja + 1) * reduccion;
+let costeactual = Math.floor(puntosedificios.granja * (habilidades.Ngranja + 1) * reduccion);
 if (pmme[0] >= costeactual){
 	habilidades.Ngranja++;
 	pmme[0] -= costeactual;
@@ -272,7 +293,7 @@ addhistory("granja", costeactual + " piedras");
 }
 }
 function subirRecursos(){
-let costeactual = puntosedificios.recursos * (habilidades.Nrecursos + 1) * reduccion;
+let costeactual = Math.floor(puntosedificios.recursos * (habilidades.Nrecursos + 1) * reduccion);
 if (pmme[0] >= costeactual){
 	habilidades.Nrecursos++;
 	pmme[0] -= costeactual;
