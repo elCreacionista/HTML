@@ -3,12 +3,13 @@
 <head>
 <title>GRAPOLIS</title>
  <link rel="stylesheet" href="css.css">
+ <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@600&display=swap" rel="stylesheet"> 
 </head>
 <body>
 
 	<div id = "historial">
 		<img src="https://img.icons8.com/color/80/000000/open-book.png"/>
-			<div> Bienvenido!!<br> Tu historial en Cardpolis</div>
+			<div> <b>Bienvenido!!<br> Historial de Cardpolis</b></div>
 	</div>
 	<div id = "actual">
 		<h2>What is Lorem Ipsum?</h2>
@@ -18,15 +19,16 @@
 	<div id= "edificios">
 
 	<div id = "ciudad" class = "card">
-
 <img src="https://img.icons8.com/officel/80/000000/bungalow.png" class = "image">
 		<button class = "buton" onclick = "enterciudad()">ciudad</button>
 		<p>puntos</p>
 	</div>
+
 	<div id = "mapa" class = "card">
 <img src="https://img.icons8.com/color/80/000000/map.png" class = "image">
 		<button class = "buton" onclick = "mostrarmapa()">mapa</button>
 	</div>
+
 	<div id = "cartas" class = "card">
 <img src="https://img.icons8.com/officel/80/000000/doctor-fate-helmet.png" class = "image">
 		<button class = "buton">cartas</button>
@@ -37,39 +39,44 @@
 		<button class = "buton">mision</button>
 		<p>nivel</p>
 	</div>
+
 	<div id = "mision2" class = "card">
 <img src="https://img.icons8.com/color/80/000000/insignia-2.png" class = "image">
 		<button class = "buton">mision</button>
 		<p>nivel</p>
 	</div>
+
 	<div id = "mision3" class = "card">
 <img src="https://img.icons8.com/color/80/000000/insignia-3.png" class = "image">
 		<button class = "buton">mision</button>
 		<p>nivel</p>
 	</div>
+
+
 	<div id = "recursos" class = "card">
 <img src="https://img.icons8.com/color/80/000000/warehouse.png" class = "image">
-		<button class = "buton">recursos</button>
+		<button class = "buton" onclick = "enterRecursos">recursos</button>
 		<p>nivel</p>
 	</div>
-
-
 
 		<div id = "ayuntamiento" class = "card">
 <img src="https://img.icons8.com/officel/80/000000/city-hall.png" class = "image">
 			<button class = "buton" onclick = "enterAyuntamiento()">ayuntamiento</button>
 		<p>nivel</p>
 		</div>
+
 		<div id = "cuartel" class = "card">
 <img src="https://img.icons8.com/doodle/80/000000/armored-helmet.png" class = "image">
-			<button class = "buton">cuartel</button>
+			<button class = "buton" onclick = "enterCuartel()">cuartel</button>
 		<p>nivel</p>
 		</div>
+
 		<div id = "coliseo" class = "card">
 <img src="https://img.icons8.com/color/80/000000/coliseum.png" class = "image">
 			<button class = "buton">coliseo</button>
 		<p>nivel</p>
 		</div>
+
 		<div id = "tienda" class = "card">
 <img src="https://img.icons8.com/fluent/80/000000/shop.png" class = "image">
 			<button class = "buton">tienda</button>
@@ -80,20 +87,24 @@
 			<button class = "buton">academia</button>
 		<p>nivel</p>
 		</div>
+
 		<div id = "muro" class = "card">
 <img src="https://img.icons8.com/color/80/000000/defensive-wood-wall.png" class = "image">
 			<button class = "buton">muro</button>
 		<p>nivel</p>
 		</div>
+
 		<div id = "granja" class = "card">
 <img src="https://img.icons8.com/plasticine/80/000000/farm.png" class = "image">
 			<button class = "buton">granja</button>
 		<p>nivel</p>
 		</div>
 
-
+	</div>
 
 	
+		<div id = "subiredificios">
+
 	<div class = "carta" id = "subirayuntamiento">
 		<div class = "front" class = "card">
 <img src="https://img.icons8.com/officel/80/000000/city-hall.png" class = "image">
@@ -106,6 +117,7 @@
 			<button class = "buton" onclick = "subirAyuntamiento()">subir</button>
 		</div>
 	</div>
+
 
 	<div class = "carta" id = "subirrecursos">
 		<div class = "front" class = "card">
@@ -177,20 +189,6 @@
 	</div>
 
 
-	<div class = "carta" id = "subiracademia">
-		<div class = "front" class = "card">
-<img src="https://img.icons8.com/color/80/000000/school-building.png" class = "image">
-			<button class = "buton">academia</button>
-		<p>nivel</p>
-		</div>
-		<div class = "back" class = "card">
-			<p id = "informacion">Te permite hacer cosas</p>
-			<p id = "coste">Coste: 100</p>
-			<button class = "buton" onclick = "subirAcademia()">subir</button>
-		</div>
-	</div>
-
-
 	<div class = "carta" id = "subircoliseo">
 		<div class = "front" class = "card">
 <img src="https://img.icons8.com/color/80/000000/coliseum.png" class = "image">
@@ -203,11 +201,128 @@
 			<button class = "buton" onclick = "subirColiseo()">subir</button>
 		</div>
 	</div>
+
+
+	<div class = "carta" id = "subiracademia">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/school-building.png" class = "image">
+			<button class = "buton">academia</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Te permite hacer cosas</p>
+			<p id = "coste">Coste: 100</p>
+			<button class = "buton" onclick = "subirAcademia()">subir</button>
+		</div>
 	</div>
+
+	</div>
+
 
 
 	
 	<div id = "tropas">
+	<div class = "carta" id = "a1">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">A</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/sword.png"/>
+				<img src="https://img.icons8.com/color/48/000000/katana.png"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	<div class = "carta" id = "b1">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">B</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/shield.png"/>
+				<img src="https://img.icons8.com/color/48/000000/katana.png"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	<div class = "carta" id = "c1">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">C</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/sword.png"/>
+				<img src="https://img.icons8.com/color/48/000000/knight-shield.png"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	<div class = "carta" id = "d1">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">D</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/shield.png"/>
+				<img src="https://img.icons8.com/color/48/000000/knight-shield.png"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	<div class = "carta" id = "e1">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">E</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/sword.png"/>
+				<img src="https://img.icons8.com/color/48/000000/archers-arrow.png"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	<div class = "carta" id = "f1">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">F</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/shield.png"/>
+				<img src="https://img.icons8.com/color/48/000000/archers-arrow.png"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
 	</div>
  <script src="js.js"></script> 
 </body>
