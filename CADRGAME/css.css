@@ -4,9 +4,12 @@ padding: 0;
 box-sizing: border-box;
 font-family: Cormorant SC, serif;
 }
+img{
+width: 50px;
+height: 50px;
+}
+
 body{
-
-
 background-color: rgb(80,20,20);
 }
 .buton{
@@ -24,6 +27,7 @@ width: 100px;
 background-color: rgb(100,100,120);
 margin-left: 30px;
 overflow: hidden;
+border-radius: 50%;
 }
 #historial div{
 position: absolute;
@@ -36,6 +40,7 @@ z-index: 300;
 #historial img{
 height: 100%;
 width: 100%;
+object-fit: fill;
 }
 #historial:hover img{
 display: none;
@@ -43,6 +48,7 @@ display: none;
 #historial:hover{
 width: 300px;
 height: 500px;
+border-radius: 0;
 }
 #historial:hover div{
 display: block;
@@ -50,10 +56,14 @@ overflow: scroll;
 }
 
 #actual {
-width: 100%;
-margin-top: 5%;
+width: 70%;
+margin-top: 2%;
+margin-left: 15%;
 text-align: center;
+background-color: rgb(100,20,20);
+border: solid 5px rgb(140,40,40);
 color: white;
+border-radius: 10%;
 }
 #actual h2{
 font-size: 2.5em;
@@ -66,26 +76,39 @@ font-size: 1.4em;
 text-shadow: 3px 3px 10px black;
 }
 #pmme{
-width: 100%;
 display: flex;
-justify-content: center;
+justify-content: space-around;
 font-size: 1.5em;
+width: 70%;
+margin-left: 15%;
+border-radius: 40%;
+text-shadow: 1px 1px 20px black;
+}
+#pmme h3{
+background-color: rgb(100,50,50);
+border-radius: 50%;
+border: solid 2px;
+
 }
 #pmme h3:nth-child(1){
-color: rgb(100,100,100);
+background-color: rgb(100,100,100);
 }
 #pmme h3:nth-child(2){
-color: rgb(120,80,100);
+background-color: rgb(120,80,100);
 }
 #pmme h3:nth-child(3){
-color: rgb(200,200,200);
+background-color: rgb(200,200,200);
 }
 #pmme h3:nth-child(4){
-color: rgb(100,100,200);
+background-color: rgb(100,100,200);
+}
+#tropas{
+display: flex;
+flex-direction: column;
 }
 
-#edificios, #tropas, #subiredificios{
-margin-top: 5%;
+#edificios, #N1, #N2, #N3, #subiredificios, #tropasciudad{
+margin-top: 2%;
 margin-left: 5%;
 height: 100%;
 width: 90%;
@@ -101,6 +124,7 @@ border: solid 4px rgb(100,100,120);
 height: 220px;
 width: 150px;
 background-color: rgb(200,200,240);
+border-radius: 2%;
 }
 
 .card:hover {
@@ -122,6 +146,8 @@ background-color: black;
 }
 .carta:hover{
 transform: rotateY(180deg);
+border: none;
+z-index: 100;
 }
 .front{
 position: absolute;
@@ -138,6 +164,7 @@ height: 260px;
 width: 170px;
 backface-visibility: hidden;
 background-color: rgb(160,160,200);
+border: solid 4px rgb(80,80,100);
 transform: rotateY(180deg);
 }
 
