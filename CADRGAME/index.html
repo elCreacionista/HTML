@@ -31,7 +31,7 @@
 
 	<div id = "cartas" class = "card">
 <img src="https://img.icons8.com/officel/80/000000/doctor-fate-helmet.png" class = "image">
-		<button class = "buton">cartas</button>
+		<button class = "buton" onclick = "enterCartas()">cartas</button>
 	</div>
 
 	<div id = "mision1" class = "card">
@@ -222,10 +222,12 @@
 
 	
 	<div id = "tropas">
+	<div id = "N1">
+	
 	<div class = "carta" id = "a1">
 		<div class = "front" class = "card">
 <img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
-			<button class = "buton">A</button>
+			<button class = "buton">A1</button>
 		<p>cantidad</p>
 		</div>
 		<div class = "back" class = "card">
@@ -233,16 +235,16 @@
 			<p id = "coste">Coste: 100</p>
 			<div>
 				<img src="https://img.icons8.com/color/48/000000/sword.png"/>
-				<img src="https://img.icons8.com/color/48/000000/katana.png"/>
+				<img src="https://vignette.wikia.nocookie.net/es.runescape/images/0/06/Mithril_scimitar_detail.png/revision/latest/scale-to-width-down/340?cb=20121231033904"/>
 			</div>
-			<button class = "buton" onclick = "">entrenar</button>
+			<button class = "buton" onclick = "crearA1()">entrenar</button>
 		</div>
 	</div>
 
 	<div class = "carta" id = "b1">
 		<div class = "front" class = "card">
 <img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
-			<button class = "buton">B</button>
+			<button class = "buton">B1</button>
 		<p>cantidad</p>
 		</div>
 		<div class = "back" class = "card">
@@ -250,7 +252,7 @@
 			<p id = "coste">Coste: 100</p>
 			<div>
 				<img src="https://img.icons8.com/color/48/000000/shield.png"/>
-				<img src="https://img.icons8.com/color/48/000000/katana.png"/>
+				<img src="https://vignette.wikia.nocookie.net/es.runescape/images/0/06/Mithril_scimitar_detail.png/revision/latest/scale-to-width-down/340?cb=20121231033904"/>
 			</div>
 			<button class = "buton" onclick = "">entrenar</button>
 		</div>
@@ -259,7 +261,7 @@
 	<div class = "carta" id = "c1">
 		<div class = "front" class = "card">
 <img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
-			<button class = "buton">C</button>
+			<button class = "buton">C1</button>
 		<p>cantidad</p>
 		</div>
 		<div class = "back" class = "card">
@@ -267,7 +269,7 @@
 			<p id = "coste">Coste: 100</p>
 			<div>
 				<img src="https://img.icons8.com/color/48/000000/sword.png"/>
-				<img src="https://img.icons8.com/color/48/000000/knight-shield.png"/>
+				<img src="https://cdn.pixabay.com/photo/2013/07/12/19/16/battle-axe-154454_1280.png"/>
 			</div>
 			<button class = "buton" onclick = "">entrenar</button>
 		</div>
@@ -276,7 +278,7 @@
 	<div class = "carta" id = "d1">
 		<div class = "front" class = "card">
 <img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
-			<button class = "buton">D</button>
+			<button class = "buton">D1</button>
 		<p>cantidad</p>
 		</div>
 		<div class = "back" class = "card">
@@ -284,7 +286,7 @@
 			<p id = "coste">Coste: 100</p>
 			<div>
 				<img src="https://img.icons8.com/color/48/000000/shield.png"/>
-				<img src="https://img.icons8.com/color/48/000000/knight-shield.png"/>
+				<img src="https://cdn.pixabay.com/photo/2013/07/12/19/16/battle-axe-154454_1280.png"/>
 			</div>
 			<button class = "buton" onclick = "">entrenar</button>
 		</div>
@@ -293,7 +295,7 @@
 	<div class = "carta" id = "e1">
 		<div class = "front" class = "card">
 <img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
-			<button class = "buton">E</button>
+			<button class = "buton">E1</button>
 		<p>cantidad</p>
 		</div>
 		<div class = "back" class = "card">
@@ -301,7 +303,7 @@
 			<p id = "coste">Coste: 100</p>
 			<div>
 				<img src="https://img.icons8.com/color/48/000000/sword.png"/>
-				<img src="https://img.icons8.com/color/48/000000/archers-arrow.png"/>
+				<img src="https://i.pinimg.com/originals/cd/fc/17/cdfc17d0e3f25c07f71bbdcaaeab8360.png"/>
 			</div>
 			<button class = "buton" onclick = "">entrenar</button>
 		</div>
@@ -310,7 +312,7 @@
 	<div class = "carta" id = "f1">
 		<div class = "front" class = "card">
 <img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
-			<button class = "buton">F</button>
+			<button class = "buton">F1</button>
 		<p>cantidad</p>
 		</div>
 		<div class = "back" class = "card">
@@ -318,12 +320,227 @@
 			<p id = "coste">Coste: 100</p>
 			<div>
 				<img src="https://img.icons8.com/color/48/000000/shield.png"/>
-				<img src="https://img.icons8.com/color/48/000000/archers-arrow.png"/>
+				<img src="https://i.pinimg.com/originals/cd/fc/17/cdfc17d0e3f25c07f71bbdcaaeab8360.png"/>
 			</div>
 			<button class = "buton" onclick = "">entrenar</button>
 		</div>
 	</div>
+
 	</div>
+
+	<div id = "N2">
+	
+	<div class = "carta" id = "a2">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">A2</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/sword.png"/>
+				<img src="https://vignette.wikia.nocookie.net/es.runescape/images/0/06/Mithril_scimitar_detail.png/revision/latest/scale-to-width-down/340?cb=20121231033904"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	<div class = "carta" id = "b2">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">B2</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/shield.png"/>
+				<img src="https://vignette.wikia.nocookie.net/es.runescape/images/0/06/Mithril_scimitar_detail.png/revision/latest/scale-to-width-down/340?cb=20121231033904"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	<div class = "carta" id = "c2">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">C2</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/sword.png"/>
+				<img src="https://cdn.pixabay.com/photo/2013/07/12/19/16/battle-axe-154454_1280.png"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	<div class = "carta" id = "d2">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">D2</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/shield.png"/>
+				<img src="https://cdn.pixabay.com/photo/2013/07/12/19/16/battle-axe-154454_1280.png"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	<div class = "carta" id = "e2">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">E2</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/sword.png"/>
+				<img src="https://i.pinimg.com/originals/cd/fc/17/cdfc17d0e3f25c07f71bbdcaaeab8360.png"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	<div class = "carta" id = "f2">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">F2</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/shield.png"/>
+				<img src="https://i.pinimg.com/originals/cd/fc/17/cdfc17d0e3f25c07f71bbdcaaeab8360.png"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	</div>
+
+	<div id = "N3">
+	
+	<div class = "carta" id = "a3">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">A3</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/sword.png"/>
+				<img src="https://vignette.wikia.nocookie.net/es.runescape/images/0/06/Mithril_scimitar_detail.png/revision/latest/scale-to-width-down/340?cb=20121231033904"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	<div class = "carta" id = "b3">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">B3</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/shield.png"/>
+				<img src="https://vignette.wikia.nocookie.net/es.runescape/images/0/06/Mithril_scimitar_detail.png/revision/latest/scale-to-width-down/340?cb=20121231033904"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	<div class = "carta" id = "c3">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">C3</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/sword.png"/>
+				<img src="https://cdn.pixabay.com/photo/2013/07/12/19/16/battle-axe-154454_1280.png"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	<div class = "carta" id = "d3">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">D3</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/shield.png"/>
+				<img src="https://cdn.pixabay.com/photo/2013/07/12/19/16/battle-axe-154454_1280.png"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	<div class = "carta" id = "e3">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">E3</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/sword.png"/>
+				<img src="https://i.pinimg.com/originals/cd/fc/17/cdfc17d0e3f25c07f71bbdcaaeab8360.png"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	<div class = "carta" id = "f3">
+		<div class = "front" class = "card">
+<img src="https://img.icons8.com/color/80/000000/iron-age-warrior.png" class = "image">
+			<button class = "buton">F3</button>
+		<p>cantidad</p>
+		</div>
+		<div class = "back" class = "card">
+			<p id = "informacion">Combates</p>
+			<p id = "coste">Coste: 100</p>
+			<div>
+				<img src="https://img.icons8.com/color/48/000000/shield.png"/>
+				<img src="https://i.pinimg.com/originals/cd/fc/17/cdfc17d0e3f25c07f71bbdcaaeab8360.png"/>
+			</div>
+			<button class = "buton" onclick = "">entrenar</button>
+		</div>
+	</div>
+
+	</div>
+	</div>
+		<div id= "tropasciudad"></div>
  <script src="js.js"></script> 
 </body>
 </html> 
