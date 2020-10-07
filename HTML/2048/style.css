@@ -1,0 +1,24 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#main{
+    height: 400px;
+    width: 400px;
+    background-color: whitesmoke;
+    position: relative;
+}
+.box{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border: 5px solid black;
+    text-align: center;
+    font-size: 50px;
+}
+.buton{
+    height: 50px;
+    width: 50px;
+    margin-top: 400px;
+}
