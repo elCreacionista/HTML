@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.animal{
+height: 30px;
+width: 30px;
+background-color: black;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+.ch{
+height: 10%;
+width: 10%;
+border: 1px solid white;
+}
+.chwater{
+    height: 10%;
+    width: 10%;
+    border: 1px solid white;
+    background-color: blue;
+}
+.chmountain{
+    height: 10%;
+    width: 10%;
+    border: 1px solid white;
+    background-color: gray;
+}
+#plantas{
+    position: absolute;
+    top: 70px;
+    left: 250px;
+    height: 500px;
+    width: 600px;
+    z-index: 100;
+}
+.plant{
+    position: absolute;
+    border-radius: 50%;
+    background-color: green;
+}
+#statics{
+    height: 100%;
+    width: 30%;
+    border: 10px solid rgb(83, 47, 0);
+    border-left: 20px solid rgb(83, 47, 0);
+    background-color: rgb(119, 255, 119);
+    text-align: center;
+}
+#vista{
+    position: relative;
+    height: 100%;
+    width: 70%;
+    border: 10px solid rgb(90, 51, 1);
+    background-color: blue;
+    align-content: center;
+}
+#mundo{
+    position: absolute;
+    top: 70px;
+    left: 250px;
+    height: 500px;
+    width: 600px;
+    border-radius: 1%;
+    background-color: orange;
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 600px;
+    width: 700px;
+}
+#n{
+    font-size: 1.2em;
+}
+.element{
+    margin: 3px;
+    height: 80px;
+    width: 60px;
+    background-color: red;
+}
+.g1{
+    background-color: green;
+}
+.g2{
+    background-color: rgb(0, 94, 0);
+}
+.g3{
+    background-color: rgb(0, 68, 0);
+}
+.g4{
+    background-color: rgb(84, 136, 0);
+}
+.g5{
+    background-color: rgb(154, 212, 19);
+}
+.g6{
+    background-color: rgb(238, 215, 8);
+}
+.g7{
+    background-color: rgb(245, 180, 0);
+}
+.g8{
+    background-color: rgb(255, 81, 0);
+}
+.g9{
+    background-color: rgb(196, 0, 0);
+}
+.g10{
+    background-color: rgb(110, 2, 2);
+}
