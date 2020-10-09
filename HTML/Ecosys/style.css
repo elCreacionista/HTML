@@ -1,0 +1,204 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#main{
+    position: absolute;
+    height: 800px;
+    width: 800px;
+    border: 5px solid black;
+    background-color: whitesmoke;
+    overflow: hidden;
+    display: none;
+}
+#main div{
+    position: absolute;
+}
+.fisher{
+    background-color: darkred;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+.red{
+    border: 2px dotted black;
+    border-radius: 50%;
+
+}
+.wall{
+    background-image: radial-gradient(black, rgb(121, 0, 0), rgba(0,0,0,0));
+    border-radius: 45%;
+
+}
+.fish{
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: red;
+}
+.shark{
+    
+    background-color: black;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+/*         STATICS         */
+#other{
+    position: absolute;
+    left: 800px;
+    height: 700px;
+    width: 500px;
+    border: 5px solid black;
+    background-color: whitesmoke;
+    overflow: hidden;
+    display: none;
+}
+.Table{
+    width: 500px;
+    height: 50%;
+    margin-left: 5%;
+    border-radius: 5%;
+    background-color: black;
+    border: 2px solid black;
+    font-size: 1.1em;
+    display: block;
+    overflow-y: scroll;
+}
+.Table tr td, .Table tr th{
+    height: 0;
+    width: 0;
+    max-height: 100px;
+    border-radius: 15%;
+    text-align: center;
+    display: none;
+    background-color: rgba(245, 245, 220);
+    border: 1px solid black;
+}
+.Table tr td:nth-child(1), .Table tr th:nth-child(1){
+    display: table-cell;
+    height: 50px;
+    width: 550px;
+}
+.Table:hover tr td:nth-child(1), .Table:hover tr th:nth-child(1){
+    display: none;
+    height: 50px;
+    width: 150px;
+}
+.Table:hover{
+    margin-left: 0;
+    width: 100%;
+    display: block;
+    overflow-y: scroll;
+
+}
+
+.Table:hover tr td{
+    height: 50px;
+    width: 150px;
+    display: table-cell;
+}
+.Table tr:hover td{
+    background-color: gray;
+}
+.Tablebutton{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+.Tablebutton:hover{
+    background-color: rgb(44, 44, 44);
+    color: white;
+    
+}
+
+
+header{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(184, 151, 109);
+    border-bottom: 5px solid rgb(128, 105, 75);
+}
+header nav{
+    display: flex;
+    align-items: stretch;
+}
+.headerbutton{
+    font-weight: bold;
+    width: 100%;
+    background-color: rgba(200, 0, 0, 0.5);
+}
+.headerbutton:hover{
+    background-color: rgb(200, 100, 100);
+
+}
+
+
+
+#init{
+    background-color: rgb(235, 245, 179);
+    position: relative;
+    height: 75vh;
+    width: 60vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.createSpecie{
+    margin-top: 10px;
+    height: 140px;
+    width: 22%;
+    border: 3px solid black;
+    background-color: red;
+    text-align: center;
+}
+.viabilitySpecie{
+    height: 140px;
+    width: 44%;
+    border: 3px solid black;
+    background-color: aquamarine;
+}
+.addSpecie{
+    height: 50px;
+    width: 150px;
+    border: 3px solid black;
+    background-color: white;
+}
+.addSpecie:hover{
+    background-color: rgb(175, 175, 175);
+}
+.SpecieName{
+bottom: 5px;
+}
+
+#box{
+    position: absolute;
+    background-color: rgb(255, 218, 151);
+    border-radius: 50%;
+    z-index: 101;
+}
+.particle{
+    position: absolute;
+    text-align: center;
+    border-radius: 50%;
+    top: -50px;
+    left: -50px;
+    height: 25px;
+    width: 25px;
+    background-color: red;
+    color: white;
+}
+
+/*PRUEBAS*/
+.cuadrado{
+    position:absolute;
+    height: 80px;
+    width: 80px;
+    border: 2px dotted black;
+
+}
