@@ -1,0 +1,63 @@
+
+let link = "" + window.location.href;
+console.log(link);
+validarString();
+
+
+
+
+
+for (i = 0; i < link.length; i++){
+    if (link.charAt(i) == '?'){
+        getVariables(i);
+    }
+}
+function validarString(){
+    let variablesIlegales = 0;
+    for (i = 0; i < link.length; i++){
+        if (link.charAt(i) == "%"){
+            variablesIlegales++;
+        }
+    }
+    if (variablesIlegales > 2){
+        alert("muy mal")
+    }
+}
+function getVariables(limite){
+
+    let arr = link.split("?").pop().split("&");
+    console.log(arr);
+    for (i = limite; i < link.length; i++){
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.querySelector("#submit").addEventListener("click", validar);
+
+function validar(){
+    let n = document.querySelector("#fullname").value;
+    let p = document.querySelector("#pass").value;
+    document.querySelector(".error").innerHTML = "olaaaaaa";
+    let t = document.querySelector("#telephone").value;
+    console.log(n);
+    console.log(p);
+    console.log(t);
+}
