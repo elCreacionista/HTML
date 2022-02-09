@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main>div{
+    position: absolute;
+    border: 1px solid black;
+}
+.planet{
+    border-radius: 50%;
+    background-color: green;
+}
+
+.moon{
+    border-radius: 50%;
+    background-color: gray;
+}
+.sun{
+    border-radius: 50%;
+    background-color: yellow;
+}

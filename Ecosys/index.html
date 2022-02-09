@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>ECOSYSTEM</title>
+</head>
+<body>
+    <header> 
+        <h1>SIMULATION GAME</h1>
+        <nav>
+            <button class = "headerbutton" id = "randomgame" onclick="Game()">Random Game</button>
+            <button class = "headerbutton" id = "resetgame" onclick="ResetGame()">Reset</button>
+            <button class = "headerbutton" onclick="PresetGame()">Create Species</button>
+            <button class = "headerbutton" onclick= "PlayShark()">Play as Shark</button>
+            <button class = "headerbutton">Load Specie</button>
+            <button class = "headerbutton">Save Specie</button>
+            <button class = "headerbutton" onclick="otherfunction()">Other</button>
+
+        </nav>
+    </header>
+    <div id = "init">
+        <div class = "createSpecie">
+            <h3>NAME</h3>
+            <input type="range" min="1" max="100" value="1" class="e" id="static1">
+            <p>Value: <snap id="SliderStatic1">1</snap> pixels</p>
+            <p>Some text</p>
+
+        </div>
+        <div class = "createSpecie">
+            <h3>NAME</h3>
+            <input type="range" min="1" max="100" value="1" class="e" id="static2">
+            <p>Value: <snap id="SliderStatic2">1</snap> pixels</p>
+            <p>Some text</p>
+        </div>
+        <div class = "createSpecie">
+            <h3>NAME</h3>
+            <input type="range" min="1" max="100" value="1" class="e" id="static3">
+            <p>Value: <snap id="SliderStatic3">1</snap> pixels</p>
+            <p>Some text</p>
+        </div>
+        <div class = "createSpecie">
+            <h3>NAME</h3>
+            <input type="range" min="1" max="100" value="1" class="e" id="static4">
+            <p>Value: <snap id="SliderStatic4">1</snap> pixels</p>
+            <p>Some text</p>
+            
+        </div>
+        <div class = "createSpecie">
+            <h3>NAME</h3>
+            <input type="range" min="1" max="100" value="1" class="e" id="static5">
+            <p>Value: <snap id="SliderStatic5">1</snap> pixels</p>
+            <p>Some text</p>
+
+        </div>
+        <div class = "createSpecie">
+            <h3>NAME</h3>
+            <input type="range" min="1" max="500" value="1" class="e" id="static6">
+            <p>Value: <snap id="SliderStatic6">1</snap> px/frame</p>
+            <p>Some text</p>
+
+        </div>
+        <div class = "createSpecie" id = "SpecieColor">
+            <h3>COLOR</h3>
+            <input type="range" min="0" max="255" value="255" class="slider" id="static7_1">
+            
+            <input type="range" min="0" max="255" value="1" class="slider" id="static7_2">
+            
+            <input type="range" min="0" max="255" value="1" class="slider" id="static7_3">
+            <p>rgb: <snap id="SliderStatic7_1">255</snap>,<snap id="SliderStatic7_2">1</snap>,
+                <snap id="SliderStatic7_3">1</snap></p>
+            <p>Some text</p>
+
+        </div>
+        <div class = "viabilitySpecie">
+            <p id = "viability">Some text</p>
+            <input type="text" placeholder="Specie name?" name="Speciename" class = "SpecieName" >
+        </div>
+
+        <button class = "addSpecie" onclick = "AddThisSpecie()">Add specie</button>
+    </div>
+    
+    <div id = "box">
+        <div class = "particle" id = "particle0" ><p>L</p></div>
+        <div class = "particle" id = "particle1" ><p>O</p></div>
+        <div class = "particle" id = "particle2" ><p>A</p></div>
+        <div class = "particle" id = "particle3" ><p>D</p></div>
+        <div class = "particle" id = "particle4" ><p>I</p></div>
+        <div class = "particle" id = "particle5" ><p>N</p></div>
+        <div class = "particle" id = "particle6" ><p>G</p></div>
+        <div class = "particle" id = "particle7" ><p>.</p></div>
+        <div class = "particle" id = "particle8" ><p>.</p></div>
+        <div class = "particle" id = "particle9" ><p>.</p></div>
+    </div>
+    <div id = "main"></div>
+    <div id = "other">
+        <table class="Table"></table>
+        
+    </div>    
+
+</body>
+<script src="statics.js"></script>
+<script src="walls.js"></script>
+<script src="Vectors.js"></script>
+<script src="fisher.js"></script>
+<script src="fish.js"></script>
+<script src="tiburon.js"></script>
+<script src="AnimationGenerator.js"></script>
+<script src="randomFlow.js"></script>
+
+<script src="dom.js"></script>
+<script src="main.js"></script>
+<script src="Player.js"></script>
+<script src="start.js"></script>
+
+
+
+</html>
